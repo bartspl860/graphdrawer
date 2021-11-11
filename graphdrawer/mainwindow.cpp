@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QString exp = "sin(x)+x^2+20x^4";
+    qDebug() << logicHandler_instance.getResult(exp, 4);
 }
 
 MainWindow::~MainWindow()

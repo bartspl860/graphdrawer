@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtDebug>
+#include "logichandler.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +19,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    LogicHandler logicHandler_instance;
 };
 #endif // MAINWINDOW_H

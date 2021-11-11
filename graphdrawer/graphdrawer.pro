@@ -9,11 +9,24 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    logichandler.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    parser/error.cpp \
+    parser/functions.cpp \
+    parser/parser.cpp \
+    parser/variablelist.cpp \
+    parser/variablelist.cpp
 
 HEADERS += \
-    mainwindow.h
+    logichandler.h \
+    mainwindow.h \
+    parser/constants.h \
+    parser/error.h \
+    parser/functions.h \
+    parser/parser.h \
+    parser/variablelist.h \
+    parser/variablelist.h
 
 FORMS += \
     mainwindow.ui
