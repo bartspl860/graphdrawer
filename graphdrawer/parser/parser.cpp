@@ -52,7 +52,7 @@ Parser::Parser()
  * parses and evaluates the given expression
  * On error, an error of type Error is thrown
  */
-double Parser::parse(const char new_expr[])
+char* Parser::parse(const char new_expr[])
 {
     try
     {
@@ -63,7 +63,7 @@ double Parser::parse(const char new_expr[])
         }
 
         // initialize all variables
-        strncpy_s(expr, new_expr, EXPR_LEN_MAX - 1);  // copy the given expression to expr
+        strncpy(expr, new_expr, EXPR_LEN_MAX - 1);  // copy the given expression to expr
         e = expr;                                  // let e point to the start of the expression
         ans = 0;
 
@@ -107,7 +107,7 @@ double Parser::parse(const char new_expr[])
         }
     }
 
-    return atof(ans_str);
+    return ans_str;
 }
 
 

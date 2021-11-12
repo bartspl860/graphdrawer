@@ -72,7 +72,7 @@ class Parser
     // public functions
     public:
         Parser();
-        double parse(const char expr[]);
+        char* parse(const char expr[]);
 
     // enumerations
     private:

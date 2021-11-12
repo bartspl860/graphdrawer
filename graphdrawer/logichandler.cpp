@@ -5,7 +5,7 @@ LogicHandler::LogicHandler()
     limit.setLimit(-10,10,10,-10);
 }
 
-double LogicHandler::getExpressionResult(QString exp, double x){
+char* LogicHandler::getExpressionResult(QString exp, double x){
 
     QString new_exp;
     QString x_as_qstring = QString::number(x); //convert x to QString
@@ -28,17 +28,20 @@ double LogicHandler::getExpressionResult(QString exp, double x){
     return parser_instance.parse(prep_exp); //parse expression and get result
 }
 
-QChartView& LogicHandler::createGraph(){
+QChartView* LogicHandler::createGraph(){
     double iterator = limit.getL();
 
 
     while(iterator < limit.getR()){
 
 
-        double y = getExpressionResult(expression, iterator);
-        qDebug() << expression << iterator << " " << y;
+        char* string_y = getExpressionResult(expression, iterator);
+        qDebug() << expression << iterator << " " << string_y;
 
-        if(y < limit.getD() || y > limit.getU()){
+        double  y = atof(string_y);
+
+        if(y < limit.getD() || y > limit.getU() || !strcmp(string_y, "inf")){
+            qDebug() << "Pomijam";
             iterator+=axix_x_sensitivity;
             continue;
         }
@@ -47,7 +50,8 @@ QChartView& LogicHandler::createGraph(){
         chartCreator_instance.addPoint(current_point);
 
         iterator+=axix_x_sensitivity;
+        iterator = round( iterator * 1000.0 ) / 1000.0;
     }
 
-    return chartCreator_instance.getChart();
+    return nullptr;//chartCreator_instance.getChart();
 }

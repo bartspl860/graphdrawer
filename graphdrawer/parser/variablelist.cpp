@@ -40,7 +40,7 @@ bool Variablelist::exist(const char* name)
 bool Variablelist::add(const char* name, double value)
 {
     VAR new_var;
-    strncpy_s(new_var.name, name, 30);
+    strncpy(new_var.name, name, 30);
     new_var.value = value;
 
     int id = get_id(name);

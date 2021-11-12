@@ -33,10 +33,10 @@ public:
     ChartCreator chartCreator_instance;
     Limit limit;
     QString expression = "";
-    double axix_x_sensitivity = 0.01;
-    QChartView& createGraph();
+    double axix_x_sensitivity = 0.1;
+    QChartView* createGraph();
 private:
-    double getExpressionResult(QString, double);
+    char* getExpressionResult(QString, double);
 
 };
 

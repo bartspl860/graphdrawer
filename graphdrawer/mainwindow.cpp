@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    logicHandler_instance.expression = "x^2";
+    logicHandler_instance.expression = "sqrt(x)";
 
-    QChartView& chart_view = logicHandler_instance.createGraph();
+    logicHandler_instance.createGraph();
 
-    chart_view.setParent(ui->frame);
+    //chart_view->setParent(ui->frame);
 }
 
 MainWindow::~MainWindow()

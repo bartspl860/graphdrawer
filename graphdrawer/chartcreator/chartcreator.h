@@ -11,12 +11,10 @@ class ChartCreator
 public:
     ChartCreator();
 private:
-    QChart chart;
-    QChartView chart_view;
     QLineSeries series;
 public:
     void addPoint(QPointF p);
-    QChartView& getChart();
+    void getChart();
 };
 
 #endif // CHARTCREATOR_H
