@@ -7,8 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString exp = "sin(x)+x^2+20x^4";
-    qDebug() << logicHandler_instance.getResult(exp, 4);
+    logicHandler_instance.expression = "x^2";
+
+    QChartView& chart_view = logicHandler_instance.createGraph();
+
+    chart_view.setParent(ui->frame);
 }
 
 MainWindow::~MainWindow()

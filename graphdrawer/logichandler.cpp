@@ -2,10 +2,10 @@
 
 LogicHandler::LogicHandler()
 {
-
+    limit.setLimit(-10,10,10,-10);
 }
 
-double LogicHandler::getResult(QString exp, double x){
+double LogicHandler::getExpressionResult(QString exp, double x){
 
     QString new_exp;
     QString x_as_qstring = QString::number(x); //convert x to QString
@@ -26,4 +26,28 @@ double LogicHandler::getResult(QString exp, double x){
 
 
     return parser_instance.parse(prep_exp); //parse expression and get result
+}
+
+QChartView& LogicHandler::createGraph(){
+    double iterator = limit.getL();
+
+
+    while(iterator < limit.getR()){
+
+
+        double y = getExpressionResult(expression, iterator);
+        qDebug() << expression << iterator << " " << y;
+
+        if(y < limit.getD() || y > limit.getU()){
+            iterator+=axix_x_sensitivity;
+            continue;
+        }
+
+        QPointF current_point = {iterator, y};
+        chartCreator_instance.addPoint(current_point);
+
+        iterator+=axix_x_sensitivity;
+    }
+
+    return chartCreator_instance.getChart();
 }
