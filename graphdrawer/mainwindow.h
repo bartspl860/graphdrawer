@@ -20,5 +20,6 @@ public:
 private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;
+    void constructGraph(QString exp);
 };
 #endif // MAINWINDOW_H

@@ -4,7 +4,6 @@
 #include <QList>
 #include <QtCharts>
 
-
 class ChartCreator
 {
 
@@ -14,7 +13,7 @@ private:
     QLineSeries series;
 public:
     void addPoint(QPointF p);
-    void getChart();
+    void createChart(QFrame* frame);
 };
 
 #endif // CHARTCREATOR_H
