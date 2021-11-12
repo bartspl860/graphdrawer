@@ -4,19 +4,16 @@
 #include <QList>
 #include <QtCharts>
 
-
 class ChartCreator
 {
 
 public:
     ChartCreator();
 private:
-    QChart chart;
-    QChartView chart_view;
     QLineSeries series;
 public:
     void addPoint(QPointF p);
-    QChartView& getChart();
+    void createChart(QFrame* frame);
 };
 
 #endif // CHARTCREATOR_H

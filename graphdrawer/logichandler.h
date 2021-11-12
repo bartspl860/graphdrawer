@@ -4,6 +4,8 @@
 #include "parser/parser.h"
 #include "chartcreator/chartcreator.h"
 #include <QtDebug>
+#include <QMainWindow>
+
 
 struct Limit{
 private:
@@ -34,7 +36,7 @@ public:
     Limit limit;
     QString expression = "";
     double axix_x_sensitivity = 0.01;
-    QChartView& createGraph();
+    void createGraph(QString exp, QFrame* frame);
 private:
     double getExpressionResult(QString, double);
 

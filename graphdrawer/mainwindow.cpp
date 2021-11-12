@@ -5,13 +5,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    
 
-    logicHandler_instance.expression = "x^2";
-
-    QChartView& chart_view = logicHandler_instance.createGraph();
-
-    chart_view.setParent(ui->frame);
+    constructGraph("sqrt(x)");
 }
 
 MainWindow::~MainWindow()
@@ -19,3 +15,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::constructGraph(QString exp){
+
+    logicHandler_instance.createGraph(exp , ui->frame);
+}

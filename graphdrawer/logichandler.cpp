@@ -28,9 +28,10 @@ double LogicHandler::getExpressionResult(QString exp, double x){
     return parser_instance.parse(prep_exp); //parse expression and get result
 }
 
-QChartView& LogicHandler::createGraph(){
+void LogicHandler::createGraph(QString exp, QFrame* frame){
     double iterator = limit.getL();
 
+    expression = exp;
 
     while(iterator < limit.getR()){
 
@@ -49,5 +50,5 @@ QChartView& LogicHandler::createGraph(){
         iterator+=axix_x_sensitivity;
     }
 
-    return chartCreator_instance.getChart();
+    chartCreator_instance.createChart(frame);
 }
