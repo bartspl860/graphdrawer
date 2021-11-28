@@ -2,7 +2,7 @@
 
 LogicHandler::LogicHandler()
 {
-    limit.setLimit(-10,10,10,-10);
+
 }
 
 char* LogicHandler::getExpressionResult(QString exp, double x){
@@ -28,13 +28,11 @@ char* LogicHandler::getExpressionResult(QString exp, double x){
     return parser_instance.parse(prep_exp); //parse expression and get result
 }
 
-void LogicHandler::createGraph(QString exp, QFrame* frame){
+void LogicHandler::createGraph(QString name, QString expression,
+                               ChartLimit limit, double axix_x_sensitivity, QFrame* frame){
     double iterator = limit.getL();
 
-    expression = exp;
-
     while(iterator < limit.getR()){
-
 
         char* string_y = getExpressionResult(expression, iterator);
         qDebug() << expression << iterator << " " << string_y;

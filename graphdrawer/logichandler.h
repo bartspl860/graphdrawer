@@ -6,40 +6,34 @@
 #include <QtDebug>
 #include <QMainWindow>
 
-
-struct Limit{
+struct ChartLimit{
 private:
     double left;
     double right;
     double up;
     double down;
 public:
+    ChartLimit(double l, double r, double u, double d) {setLimit(l,r,u,d);}
     void setLimit(double l, double r, double u, double d){
         left = l;
         right = r;
         up = u;
         down = d;
     }
-    double getL(){return left;}
-    double getR(){return right;}
-    double getU(){return up;}
-    double getD(){return down;}
+    double getL()const{return left;}
+    double getR()const{return right;}
+    double getU()const{return up;}
+    double getD()const{return down;}
 };
 
 class LogicHandler
 {
-
 public:
     LogicHandler();
+    void createGraph(QString name, QString exp, ChartLimit lim, double sens, QFrame* dest);
+private:
     Parser parser_instance;
     ChartCreator chartCreator_instance;
-    Limit limit;
-    QString expression = "";
-    double axix_x_sensitivity = 0.01;
-    void createGraph(QString exp, QFrame* frame);
-private:
     char* getExpressionResult(QString, double);
-
 };
-
 #endif // LOGICHANDLER_H
