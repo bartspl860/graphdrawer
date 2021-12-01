@@ -22,19 +22,19 @@ void ChartCreator::addPoint(QPointF p){
 
 void ChartCreator::createChart(QFrame* frame){
 
-    foreach(auto v, all_series){
-        chart.addSeries(v);
+    chart = new QChart();
+    chart->legend()->hide();
+    chart->createDefaultAxes();
+
+    foreach(auto v, all_series){       
+        chart->addSeries(v);
     }
 
-    chart.legend()->hide();
-    chart.createDefaultAxes();
-
-    qDebug("Tu jestem");
-
     QChartView* chart_view = new QChartView();
-    chart_view->setChart(&chart);
+    chart_view->setChart(chart);
 
     frame->setParent(chart_view);
 
     Q_UNUSED(chart_view);
+    Q_UNUSED(chart);
 }

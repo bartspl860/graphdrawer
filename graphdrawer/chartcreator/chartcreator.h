@@ -10,7 +10,7 @@ class ChartCreator
 public:
     ChartCreator();
 private:
-    QChart chart;
+    QChart* chart;
     QVector<QLineSeries*> all_series;
 public:
     void createSeries(QString name, QColor color);
