@@ -3,7 +3,7 @@
 
 #include <QVector>
 #include <QtCharts>
-
+#include <QPixmap>
 class ChartCreator
 {
 

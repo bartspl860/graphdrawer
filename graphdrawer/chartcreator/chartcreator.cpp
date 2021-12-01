@@ -41,6 +41,9 @@ void ChartCreator::createChart(QFrame* frame){
     ///
     chart_view->setParent(frame);
 
+    QPixmap pixmap(frame->size());
+    frame->render(&pixmap);
+    pixmap.save(":/graphdrawer/graphdrawer/gowno.bmp");
     Q_UNUSED(chart_view);
     Q_UNUSED(chart);
 }
