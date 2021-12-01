@@ -11,6 +11,9 @@ int main(int argc, char *argv[])
 
 
     parserTest();
-
+    parserTest2();
+    parserTest3();
+    parserTest4();
+    parserTest5();
     return a.exec();
 }
