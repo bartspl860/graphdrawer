@@ -30,8 +30,7 @@ void MainWindow::on_add_clicked()
 
         QPixmap pixmap(ui->frame->size());
         ui->frame->render(&pixmap);
-        pixmap.save(":graphdrawer/plik.bmp");
-
+        pixmap.save(QDir::currentPath()+"/plik.bmp");
 
 }
 
