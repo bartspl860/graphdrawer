@@ -38,12 +38,10 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
     while(iterator <= limit.getR()){
 
         char* string_y = getExpressionResult(expression, iterator);
-        qDebug() << expression << iterator << " " << string_y;
 
         double y = atof(string_y);
 
         if(y < limit.getD() || y > limit.getU() || !strcmp(string_y, "inf")){
-            qDebug() << "Pomijam";
             iterator+=axix_x_sensitivity;
             continue;
         }

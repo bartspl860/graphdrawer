@@ -11,6 +11,7 @@ QT += charts
 
 SOURCES += \
     chartcreator/chartcreator.cpp \
+    jsonhandler.cpp \
     logichandler.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -22,6 +23,8 @@ SOURCES += \
 
 HEADERS += \
     chartcreator/chartcreator.h \
+    json.hpp \
+    jsonhandler.h \
     logichandler.h \
     mainwindow.h \
     parser/constants.h \
