@@ -23,15 +23,12 @@ void MainWindow::constructGraph(QString name, QColor color, QString exp, ChartLi
 
 void MainWindow::on_add_clicked()
 {
-    qDebug() <<"gown";
-    bool xd;
-    if(xd)
-    {
-        xd=false;
+    qDebug() <<"jestem";
+
         QPixmap pixmap(ui->frame->size());
         ui->frame->render(&pixmap);
-        pixmap.save("gowno.bmp");
-        xd=true;
-    }
+        pixmap.save(":graphdrawer/plik.bmp");
+
+
 }
 
