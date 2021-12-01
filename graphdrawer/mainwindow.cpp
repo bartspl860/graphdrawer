@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,3 +20,18 @@ MainWindow::~MainWindow()
 void MainWindow::constructGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest){
     logicHandler_instance.createGraph(name, color, exp, lim, sens, dest);
 }
+
+void MainWindow::on_add_clicked()
+{
+    qDebug() <<"gown";
+    bool xd;
+    if(xd)
+    {
+        xd=false;
+        QPixmap pixmap(ui->frame->size());
+        ui->frame->render(&pixmap);
+        pixmap.save("gowno.bmp");
+        xd=true;
+    }
+}
+
