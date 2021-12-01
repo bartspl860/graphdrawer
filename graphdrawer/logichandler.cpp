@@ -55,3 +55,9 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
 
     chartCreator_instance.createChart(frame);
 }
+
+void LogicHandler::createGraph(QFrame *frame){
+
+    //chartCreator_instance.addSeriesFromJSONFile();
+    //chartCreator_instance.createChart(frame);
+}

@@ -21,5 +21,6 @@ private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;
     void constructGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest);
+    void constructGraphJSON(QFrame* dest);
 };
 #endif // MAINWINDOW_H

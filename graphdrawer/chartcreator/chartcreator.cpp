@@ -22,25 +22,53 @@ void ChartCreator::addPoint(QPointF p){
 
 void ChartCreator::createChart(QFrame* frame){
 
-    chart = new QChart();
-    chart->legend()->show();
-    chart->createDefaultAxes();
+    ///////////////////////////////
+    /// Pozdrawiam użytkowników c++
+    /// Znam wasz ból...
+    //////////////////////////////
+
+    chart = new QChart();      
 
     foreach(auto v, all_series){       
         chart->addSeries(v);
     }
+    chart->legend()->show();
+    chart->createDefaultAxes();
 
     QChartView* chart_view = new QChartView();
     chart_view->setChart(chart);
+    chart_view->setRenderHint(QPainter::Antialiasing);
 
-    //frame->setCentralWidget(chart_view); // ????
-    ///////////////////////
-    //Dla 2 lub więcej serii wyrzuca ¯\_(ツ)_/¯
-    //////////////////////
-    ///
-    ///
+
     chart_view->setParent(frame);
 
     Q_UNUSED(chart_view);
     Q_UNUSED(chart);
+}
+
+void ChartCreator::addSeriesFromJSONFile(){
+    std::ifstream input(":/input.json");
+    QLineSeries* s;
+
+    if(input.is_open()){
+
+        qDebug() << "Tutaj";
+
+        json data;
+        input >> data;
+
+        //QString name(data["Name"]);
+
+        foreach(auto value, data["list"]){
+            QPointF p(value["x"], value["y"]);
+            s->append(p);
+        }
+
+    }
+
+    all_series.push_front(s);
+
+    qDebug() << s->points();
+
+    Q_UNUSED(s);
 }
