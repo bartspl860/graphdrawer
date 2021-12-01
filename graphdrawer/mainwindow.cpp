@@ -8,10 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);    
 
-    //constructGraph("Wykres 1", QColor().red(), "sinx", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
-    //constructGraph("Wykres 2", QColor().blue(), "x", ChartLimit(-10,10,10,-10), 1, ui->frame);
-    //constructGraph("Wykres 3", QColor().blue(), "x^2-5", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
-    //constructGraph("Wykres 4", QColor().blue(), "8", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 1", QColor().red(), "sinx", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 2", QColor().blue(), "x", ChartLimit(-10,10,10,-10), 1, ui->frame);
+    constructGraph("Wykres 3", QColor().blue(), "x^2-5", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 4", QColor().blue(), "8", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
     //constructGraphJSON(ui->frame);
 }
 
@@ -26,12 +26,9 @@ void MainWindow::constructGraph(QString name, QColor color, QString exp, ChartLi
 
 void MainWindow::on_add_clicked()
 {
-    qDebug() <<"jestem";
-
-        QPixmap pixmap(ui->frame->size());
-        ui->frame->render(&pixmap);
-        pixmap.save(QDir::currentPath()+"/plik.bmp");
-
+    QPixmap pixmap(ui->frame->size());
+    ui->frame->render(&pixmap);
+    pixmap.save(QDir::currentPath()+"/plik.bmp");
 }
 
 void MainWindow::constructGraphJSON(QFrame *dest){

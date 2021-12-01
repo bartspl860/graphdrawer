@@ -40,9 +40,7 @@ void ChartCreator::createChart(QFrame* frame){
     chart_view->setChart(chart);
     chart_view->setRenderHint(QPainter::Antialiasing);
 
-
     chart_view->setParent(frame);
-
 
     Q_UNUSED(chart_view);
     Q_UNUSED(chart);
@@ -67,10 +65,8 @@ void ChartCreator::addSeriesFromJSONFile(){
         }
 
     }
-
     all_series.push_front(s);
 
     qDebug() << s->points();
-
     Q_UNUSED(s);
 }
