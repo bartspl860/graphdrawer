@@ -31,6 +31,7 @@ class LogicHandler
 public:
     LogicHandler();
     void createGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest);
+    void createGraph(QFrame* dest);
 private:
     Parser parser_instance;
     ChartCreator chartCreator_instance;

@@ -3,7 +3,11 @@
 
 #include <QVector>
 #include <QtCharts>
-#include <QPixmap>
+#include <fstream>
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 class ChartCreator
 {
 
@@ -16,6 +20,7 @@ public:
     void createSeries(QString name, QColor color);
     void addPoint(QPointF p);
     void createChart(QFrame* frame);
+    void addSeriesFromJSONFile();
 };
 
 #endif // CHARTCREATOR_H

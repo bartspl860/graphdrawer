@@ -11,7 +11,6 @@ QT += charts
 
 SOURCES += \
     chartcreator/chartcreator.cpp \
-    jsonhandler.cpp \
     logichandler.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
 HEADERS += \
     chartcreator/chartcreator.h \
     json.hpp \
-    jsonhandler.h \
     logichandler.h \
     mainwindow.h \
     parser/constants.h \
@@ -41,3 +39,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
