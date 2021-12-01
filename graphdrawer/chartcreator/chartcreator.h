@@ -1,7 +1,7 @@
 #ifndef CHARTCREATOR_H
 #define CHARTCREATOR_H
 
-#include <QList>
+#include <QVector>
 #include <QtCharts>
 
 class ChartCreator
@@ -10,8 +10,10 @@ class ChartCreator
 public:
     ChartCreator();
 private:
-    QLineSeries series;
+    QChart chart;
+    QVector<QLineSeries*> all_series;
 public:
+    void createSeries(QString name, QColor color);
     void addPoint(QPointF p);
     void createChart(QFrame* frame);
 };

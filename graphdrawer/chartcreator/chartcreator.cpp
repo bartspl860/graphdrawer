@@ -6,23 +6,35 @@ ChartCreator::ChartCreator()
 
 }
 
+void ChartCreator::createSeries(QString name, QColor color){
+    QLineSeries* temp_series = new QLineSeries();
+    temp_series->setName(name);
+    //temp_series->setColor(color);
+
+    all_series.push_front(temp_series);
+
+    Q_UNUSED(temp_series);
+}
+
 void ChartCreator::addPoint(QPointF p){
-    series.append(p);
+    all_series.first()->append(p);
 }
 
 void ChartCreator::createChart(QFrame* frame){
 
-    QChart* chart = new QChart();
-    chart->addSeries(&series);
-    chart->legend()->hide();
+    foreach(auto v, all_series){
+        chart.addSeries(v);
+    }
 
-    chart->createDefaultAxes();
+    chart.legend()->hide();
+    chart.createDefaultAxes();
+
+    qDebug("Tu jestem");
 
     QChartView* chart_view = new QChartView();
-    chart_view->setChart(chart); //tu gdzieś jest coś popsute, przerób żeby instancji nie było
+    chart_view->setChart(&chart);
 
-    chart_view->setParent(frame);
+    frame->setParent(chart_view);
 
-    Q_UNUSED(chart);
     Q_UNUSED(chart_view);
 }
