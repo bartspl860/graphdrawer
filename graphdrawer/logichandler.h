@@ -32,9 +32,9 @@ public:
     LogicHandler();
     void createGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest);
     void createGraph(QFrame* dest);
+    char* getExpressionResult(QString, double);
 private:
     Parser parser_instance;
-    ChartCreator chartCreator_instance;
-    char* getExpressionResult(QString, double);
+    ChartCreator chartCreator_instance;    
 };
 #endif // LOGICHANDLER_H

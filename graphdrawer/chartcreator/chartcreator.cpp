@@ -34,6 +34,7 @@ void ChartCreator::createChart(QFrame* frame){
     }
     chart->legend()->show();
     chart->createDefaultAxes();
+    chart->setAnimationOptions(QChart::AllAnimations);
 
     QChartView* chart_view = new QChartView();
     chart_view->setChart(chart);

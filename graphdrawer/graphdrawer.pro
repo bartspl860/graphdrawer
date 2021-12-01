@@ -21,6 +21,7 @@ SOURCES += \
     parser/variablelist.cpp
 
 HEADERS += \
+    Tests.h \
     chartcreator/chartcreator.h \
     json.hpp \
     logichandler.h \
