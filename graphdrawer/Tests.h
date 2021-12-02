@@ -14,7 +14,7 @@ void parserTest(){
     {
         if(atof(t.getExpressionResult(str,x))==25)
         {
-                qDebug() << "zajebioza";
+                qDebug() << "Dziala";
         }
         else
         {
@@ -38,7 +38,7 @@ void parserTest2(){
     {
         if(atof(t.getExpressionResult(str,x))==25)
         {
-                qDebug() << "zajebioza";
+                qDebug() << "Dziala";
         }
         else
         {
