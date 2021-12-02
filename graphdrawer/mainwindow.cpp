@@ -8,10 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);    
 
-    //constructGraph("Wykres 1", QColor().red(), "sinx", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
-    //constructGraph("Wykres 2", QColor().blue(), "x", ChartLimit(-10,10,10,-10), 1, ui->frame);
-    //constructGraph("Wykres 3", QColor().blue(), "x^2-5", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
-    //constructGraph("Wykres 4", QColor().blue(), "8", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 1", QColor().red(), "sinx", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 2", QColor().blue(), "x", ChartLimit(-10,10,10,-10), 1, ui->frame);
+    constructGraph("Wykres 3", QColor().blue(), "x^2-5", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
+    constructGraph("Wykres 4", QColor().blue(), "8", ChartLimit(-10,10,10,-10), 0.1, ui->frame);
     //constructGraphJSON(ui->frame);
 }
 
