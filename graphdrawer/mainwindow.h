@@ -18,12 +18,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_add_clicked();
-
+    void on_addchart_clicked();
 private:
     Ui::MainWindow *ui;
-    LogicHandler logicHandler_instance;
-    void constructGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest);
-    void constructGraphJSON(QFrame* dest);
+    LogicHandler logicHandler_instance;    
 };
 #endif // MAINWINDOW_H

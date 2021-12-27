@@ -30,11 +30,11 @@ char* LogicHandler::getExpressionResult(QString exp, double x){
 }
 
 void LogicHandler::createGraph(QString name, QColor color, QString expression,
-                               ChartLimit limit, double axix_x_sensitivity, QFrame* frame){
+                               ChartLimit limit, double axix_x_sensitivity, QCustomPlot* plot){
 
     double iterator = limit.getL();
 
-    chartCreator_instance.createSeries(name, color);
+    chartCreator_instance.createSeries(name, color, limit, axix_x_sensitivity);
 
     while(iterator <= limit.getR()){
 
@@ -48,13 +48,12 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
         }
 
         QPointF current_point = {iterator, y};
-        chartCreator_instance.addPoint(current_point);
-
+        chartCreator_instance.addPoint(current_point);        
         iterator += axix_x_sensitivity;
         iterator = round( iterator * 1000.0 ) / 1000.0;
     }
 
-    chartCreator_instance.createChart(frame);
+    chartCreator_instance.createGraph(plot);
 }
 
 void LogicHandler::createGraph(QFrame *frame){

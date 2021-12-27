@@ -6,67 +6,40 @@ ChartCreator::ChartCreator()
 
 }
 
-void ChartCreator::createSeries(QString name, QColor color){
-    QLineSeries* temp_series = new QLineSeries();
-    temp_series->setName(name);
-    temp_series->setColor(color);
+ChartCreator::~ChartCreator(){
 
-    all_series.push_front(temp_series);
-
-    Q_UNUSED(temp_series);
 }
 
-void ChartCreator::addPoint(QPointF p){    
-    all_series.first()->append(p);    
+void ChartCreator::createSeries(QString name, QColor color, ChartLimit limit, double axis_sen){
+    QVector<double> x, y;
+    Series _series(name, color, x, y, limit, axis_sen);
+    all_series.push_front(_series);
 }
 
-void ChartCreator::createChart(QFrame* frame){
+void ChartCreator::addPoint(QPointF p){
+    all_series.front().series_x.push_back(p.x());
+    all_series.front().series_y.push_back(p.y());
+}
 
-    ///////////////////////////////
-    /// Pozdrawiam użytkowników c++
-    /// Znam wasz ból...
-    //////////////////////////////
+void ChartCreator::createGraph(QCustomPlot* plot){
 
-    chart = new QChart();      
+    plot->clearGraphs();
 
-    foreach(auto v, all_series){       
-        chart->addSeries(v);
+    int i = 0;
+    foreach(auto value, all_series){
+        plot->addGraph();
+        plot->graph(i)->setPen(QPen(value.getColor()));
+        plot->graph(i)->setData(value.series_x, value.series_y);
+        plot->xAxis->setLabel("x");
+        plot->yAxis->setLabel("y");
+        plot->xAxis->setRange(value.getLimit().getL(), value.getLimit().getR());
+        plot->yAxis->setRange(value.getLimit().getD(), value.getLimit().getU());
+        i++;
     }
-    chart->legend()->show();
-    chart->createDefaultAxes();
-    chart->setAnimationOptions(QChart::AllAnimations);
 
-    QChartView* chart_view = new QChartView();
-    chart_view->setChart(chart);
-    chart_view->setRenderHint(QPainter::Antialiasing);
-
-    chart_view->setParent(frame);
-
-    Q_UNUSED(chart_view);
-    Q_UNUSED(chart);
+    plot->replot();
 }
 
 void ChartCreator::addSeriesFromJSONFile(){
-    std::ifstream input(":/input.json");
-    QLineSeries* s;
 
-    if(input.is_open()){
-
-        qDebug() << "Tutaj";
-
-        json data;
-        input >> data;
-
-        //QString name(data["Name"]);
-
-        foreach(auto value, data["list"]){
-            QPointF p(value["x"], value["y"]);
-            s->append(p);
-        }
-
-    }
-    all_series.push_front(s);
-
-    qDebug() << s->points();
-    Q_UNUSED(s);
 }

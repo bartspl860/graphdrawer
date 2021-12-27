@@ -5,21 +5,25 @@
 #include <QtCharts>
 #include <fstream>
 #include "json.hpp"
+#include "qcustomplot.h"
+#include "essentials.h"
 
 using json = nlohmann::json;
+
+
 
 class ChartCreator
 {
 
 public:
     ChartCreator();
+    ~ChartCreator();
 private:
-    QChart* chart;
-    QVector<QLineSeries*> all_series;
+    QVector<Series> all_series;
 public:
-    void createSeries(QString name, QColor color);
+    void createSeries(QString name, QColor color, ChartLimit limit, double axix_sen);
     void addPoint(QPointF p);
-    void createChart(QFrame* frame);
+    void createGraph(QCustomPlot* frame);
     void addSeriesFromJSONFile();
 };
 

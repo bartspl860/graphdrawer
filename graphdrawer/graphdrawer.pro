@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 QT += charts
@@ -18,11 +18,13 @@ SOURCES += \
     parser/functions.cpp \
     parser/parser.cpp \
     parser/variablelist.cpp \
-    parser/variablelist.cpp
+    parser/variablelist.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     Tests.h \
     chartcreator/chartcreator.h \
+    essentials.h \
     json.hpp \
     logichandler.h \
     mainwindow.h \
@@ -31,7 +33,8 @@ HEADERS += \
     parser/functions.h \
     parser/parser.h \
     parser/variablelist.h \
-    parser/variablelist.h
+    parser/variablelist.h \
+    qcustomplot.h
 
 FORMS += \
     mainwindow.ui

@@ -5,32 +5,15 @@
 #include "chartcreator/chartcreator.h"
 #include <QtDebug>
 #include <QMainWindow>
+#include "qcustomplot.h"
+#include "essentials.h"
 
-struct ChartLimit{
-private:
-    double left;
-    double right;
-    double up;
-    double down;
-public:
-    ChartLimit(double l, double r, double u, double d) {setLimit(l,r,u,d);}
-    void setLimit(double l, double r, double u, double d){
-        left = l;
-        right = r;
-        up = u;
-        down = d;
-    }
-    double getL()const{return left;}
-    double getR()const{return right;}
-    double getU()const{return up;}
-    double getD()const{return down;}
-};
 
 class LogicHandler
 {
 public:
     LogicHandler();
-    void createGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QFrame* dest);
+    void createGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens, QCustomPlot* dest);
     void createGraph(QFrame* dest);
     char* getExpressionResult(QString, double);
 private:
