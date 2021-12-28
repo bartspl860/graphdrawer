@@ -19,8 +19,16 @@ public:
 
 private slots:
     void on_addchart_clicked();
+    void getSelect();
+    void on_delete_selected_graph_clicked();
+    void on_pick_color_clicked();
+    void getColor(const QColor&);
+    void onColorDestroy();
+
 private:
     Ui::MainWindow *ui;
-    LogicHandler logicHandler_instance;    
+    LogicHandler logicHandler_instance;
+    QColorDialog* color_picker;
+    QColor current_color = Qt::black;
 };
 #endif // MAINWINDOW_H

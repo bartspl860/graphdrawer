@@ -24,6 +24,7 @@ SOURCES += \
 HEADERS += \
     Tests.h \
     chartcreator/chartcreator.h \
+    container_classes.h \
     essentials.h \
     json.hpp \
     logichandler.h \

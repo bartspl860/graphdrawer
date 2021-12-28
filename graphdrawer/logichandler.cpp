@@ -1,12 +1,9 @@
 #include "logichandler.h"
 
-LogicHandler::LogicHandler()
-{
 
-}
+LogicHandler::LogicHandler(QObject *parent) : QObject(parent){}
 
 char* LogicHandler::getExpressionResult(QString exp, double x){
-
     QString new_exp;
     QString x_as_qstring = QString::number(x); //convert x to QString
 
@@ -30,11 +27,23 @@ char* LogicHandler::getExpressionResult(QString exp, double x){
 }
 
 void LogicHandler::createGraph(QString name, QColor color, QString expression,
-                               ChartLimit limit, double axix_x_sensitivity, QCustomPlot* plot){
+                               ChartLimit limit, double axix_x_sensitivity,
+                               QCustomPlot* plot, QComboBox* list)
+{
+    if(list_at_start){
+        logic_combo = list;
+        logic_plot = plot;
+        list->clear(); list_at_start = false;
+    }
+
+    if(name.isEmpty())
+        list->addItem(expression);
+    else
+        list->addItem(name);
 
     double iterator = limit.getL();
 
-    chartCreator_instance.createSeries(name, color, limit, axix_x_sensitivity);
+    chartCreator_instance.createSeries(name, color, limit, axix_x_sensitivity, expression);
 
     while(iterator <= limit.getR()){
 
@@ -56,8 +65,37 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
     chartCreator_instance.createGraph(plot);
 }
 
-void LogicHandler::createGraph(QFrame *frame){
+void LogicHandler::createGraph(QCustomPlot* frame, QComboBox* list){
 
     //chartCreator_instance.addSeriesFromJSONFile();
     //chartCreator_instance.createChart(frame);
+}
+
+void LogicHandler::getSelectedGraph(){
+    int i=0;
+    foreach(auto value, chartCreator_instance.all_graphs){
+        if(value->selected()){
+            lastly_selected_graph = i;
+            break;
+        }
+        i++;
+    }
+    logic_combo->setCurrentIndex(lastly_selected_graph);
+}
+
+void LogicHandler::delete_selected_plot(){
+    if(chartCreator_instance.all_series.empty())
+        return;
+    if(lastly_selected_graph == -1)
+        return;
+
+    logic_combo->removeItem(lastly_selected_graph);
+    chartCreator_instance.all_series.erase(
+                chartCreator_instance.all_series.begin()+lastly_selected_graph);
+    chartCreator_instance.createGraph(logic_plot);
+    if(logic_combo->count() == 0){
+        list_at_start = true;
+        logic_combo->addItem("empty");
+    }
+    lastly_selected_graph = -1;
 }
