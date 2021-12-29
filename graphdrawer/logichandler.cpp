@@ -1,5 +1,5 @@
 #include "logichandler.h"
-
+#include "parser/error.h"
 
 LogicHandler::LogicHandler(QObject *parent) : QObject(parent){}
 
@@ -30,6 +30,29 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
                                ChartLimit limit, double axix_x_sensitivity,
                                QCustomPlot* plot, QComboBox* list)
 {
+    QVector<QPointF> data;
+    double iterator = limit.getL();
+
+    try{
+        while(iterator <= limit.getR()){
+            char* string_y = getExpressionResult(expression, iterator);
+            double y = atof(string_y);
+
+            if(y < limit.getD() || y > limit.getU() || !strcmp(string_y, "inf")){
+                iterator+=axix_x_sensitivity;
+                continue;
+            }
+            data.push_back(QPointF(iterator, y));
+
+            iterator += axix_x_sensitivity;
+            iterator = round( iterator * 1000.0 ) / 1000.0;
+        }
+    }
+    catch(Error& error){
+        QMessageBox::critical(nullptr, "Error", error.get_msg());
+        return;
+    }
+
     if(list_at_start){
         logic_combo = list;
         logic_plot = plot;
@@ -41,25 +64,10 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
     else
         list->addItem(name);
 
-    double iterator = limit.getL();
-
     chartCreator_instance.createSeries(name, color, limit, axix_x_sensitivity, expression);
 
-    while(iterator <= limit.getR()){
-
-        char* string_y = getExpressionResult(expression, iterator);
-
-        double y = atof(string_y);
-
-        if(y < limit.getD() || y > limit.getU() || !strcmp(string_y, "inf")){
-            iterator+=axix_x_sensitivity;
-            continue;
-        }
-
-        QPointF current_point = {iterator, y};
-        chartCreator_instance.addPoint(current_point);        
-        iterator += axix_x_sensitivity;
-        iterator = round( iterator * 1000.0 ) / 1000.0;
+    foreach(auto value, data){
+        chartCreator_instance.addPoint(value);
     }
 
     chartCreator_instance.createGraph(plot);

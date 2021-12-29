@@ -54,8 +54,8 @@ Parser::Parser()
  */
 char* Parser::parse(const char new_expr[])
 {
-    try
-    {
+    //try
+    //{
         // check the length of expr
         if ((int)strlen(new_expr) > EXPR_LEN_MAX)
         {
@@ -94,8 +94,8 @@ char* Parser::parse(const char new_expr[])
         user_var.add("Ans", ans);
 
         snprintf(ans_str, sizeof(ans_str), "%g", ans);
-    }
-    catch (Error err)
+    //}
+    /*catch (Error err)
     {
         if (err.get_row() == -1)
         {
@@ -105,7 +105,7 @@ char* Parser::parse(const char new_expr[])
         {
             snprintf(ans_str, sizeof(ans_str), "Error: %s (ln %i, col %i)", err.get_msg(), err.get_row(), err.get_col());
         }
-    }
+    }*/
 
     return ans_str;
 }

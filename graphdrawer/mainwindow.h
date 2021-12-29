@@ -25,6 +25,8 @@ private slots:
     void getColor(const QColor&);
     void onColorDestroy();
 
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;

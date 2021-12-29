@@ -5,6 +5,7 @@
 #include "chartcreator/chartcreator.h"
 #include <QtDebug>
 #include <QMainWindow>
+#include <QMessageBox>
 #include "qcustomplot.h"
 #include "container_classes.h"
 

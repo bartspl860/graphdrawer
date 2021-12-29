@@ -22,6 +22,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(color_picker, &QColorDialog::rejected, this, &MainWindow::onColorDestroy);
 
     essentials::setLabelColor(ui->label_color, Qt::black);
+
+    ui->plot->xAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
+    ui->plot->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
+
+    ui->plot->replot();
 }
 
 void MainWindow::getSelect(){
@@ -48,7 +53,7 @@ void MainWindow::on_addchart_clicked()
     logicHandler_instance.createGraph(
                 ui->function_name->displayText(), current_color,
                 ui->function_source->displayText(),
-                ChartLimit(-1000,1000,1000,-1000),
+                ChartLimit(-10,10,10,-10),
                 0.1, ui->plot, ui->function_list);
 
     ui->function_name->clear();
@@ -80,5 +85,43 @@ void MainWindow::getColor(const QColor& color){
 void MainWindow::onColorDestroy(){
     color_picker->hide();
     this->show();
+}
+
+
+void MainWindow::on_checkBox_stateChanged(int state)
+{
+    if(state){
+        QLinearGradient plotGradient;
+        plotGradient.setStart(0, 0);
+        plotGradient.setFinalStop(0, 350);
+        plotGradient.setColorAt(0, QColor(80, 80, 80));
+        plotGradient.setColorAt(1, QColor(50, 50, 50));
+
+        ui->plot->setBackground(plotGradient);
+
+        ui->plot->xAxis->setBasePen(QPen(Qt::white, 1));
+        ui->plot->yAxis->setBasePen(QPen(Qt::white, 1));
+
+        ui->plot->xAxis->setTickLabelColor(Qt::white);
+        ui->plot->yAxis->setTickLabelColor(Qt::white);
+
+        ui->plot->xAxis->setSubTickPen(QPen(Qt::white, 1));
+        ui->plot->yAxis->setSubTickPen(QPen(Qt::white, 1));
+    }
+    else{
+        ui->plot->setBackground(QLinearGradient());
+
+        ui->plot->xAxis->setBasePen(QPen(Qt::black, 1));
+        ui->plot->yAxis->setBasePen(QPen(Qt::black, 1));
+
+        ui->plot->xAxis->setTickLabelColor(Qt::black);
+        ui->plot->yAxis->setTickLabelColor(Qt::black);
+
+        ui->plot->xAxis->setSubTickPen(QPen(Qt::black, 1));
+        ui->plot->yAxis->setSubTickPen(QPen(Qt::black, 1));
+    }
+
+
+    ui->plot->replot();
 }
 
