@@ -6,13 +6,13 @@
 
 namespace essentials {
     void setLabelColor(QLabel* label, QColor color){
-        QPixmap pixmap(45,20);
+        QPixmap pixmap(60,30);
         pixmap.fill(color);
         label->setPixmap(pixmap);
     }
 
     void resetLabelColor(QLabel* label){
-        QPixmap pixmap(45,20);
+        QPixmap pixmap(60,30);
         pixmap.fill(Qt::black);
         label->setPixmap(pixmap);
     }

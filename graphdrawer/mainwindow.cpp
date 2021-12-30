@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-color:#2F4F4F;");
+
+
 
     setWindowFlags(windowFlags() | Qt::CustomizeWindowHint |
                                    Qt::WindowMinimizeButtonHint |
@@ -39,14 +42,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*void MainWindow::on_add_clicked()
-{
-    qDebug() <<"jestem";
 
-        QPixmap pixmap(ui->frame->size());
-        ui->frame->render(&pixmap);
-        pixmap.save(QDir::currentPath()+"/plik.bmp");
-}*/
 
 void MainWindow::on_addchart_clicked()
 {
@@ -124,4 +120,11 @@ void MainWindow::on_checkBox_stateChanged(int state)
 
     ui->plot->replot();
 }
+
+
+void MainWindow::on_exp_clicked()
+{
+    ui->plot->saveBmp("xd.png",1000,1000);
+}
+
 

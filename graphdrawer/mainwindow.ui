@@ -31,6 +31,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
@@ -62,6 +65,19 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Source Code Pro</family>
+          <pointsize>14</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Name</string>
         </property>
@@ -71,9 +87,24 @@
        <widget class="QLineEdit" name="function_name">
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>100</height>
+          <width>150</width>
+          <height>120</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border:2px solid black;
+border-radius:5px;
+color:black;
+background:white;
+
+}
+QLineEdit:hover{
+border: 2px solid blue;
+}
+QLineEdit:focus{
+border:2px solid red;
+}</string>
         </property>
        </widget>
       </item>
@@ -81,9 +112,13 @@
        <widget class="QLabel" name="label">
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>200</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
         </property>
         <property name="text">
          <string>Function</string>
@@ -94,9 +129,24 @@
        <widget class="QLineEdit" name="function_source">
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>16777215</height>
+          <width>150</width>
+          <height>200</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+border:2px solid black;
+border-radius:5px;
+color:black;
+background:white;
+
+}
+QLineEdit:hover{
+border: 2px solid blue;
+}
+QLineEdit:focus{
+border:2px solid red;
+}</string>
         </property>
        </widget>
       </item>
@@ -107,6 +157,10 @@
           <width>100</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
         </property>
         <property name="text">
          <string>Color</string>
@@ -119,9 +173,34 @@
          <widget class="QPushButton" name="pick_color">
           <property name="maximumSize">
            <size>
-            <width>50</width>
+            <width>84</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QPushButton{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 30px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+content:XD;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
           </property>
           <property name="text">
            <string>Pick</string>
@@ -151,7 +230,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>35</width>
             <height>20</height>
            </size>
           </property>
@@ -163,12 +242,37 @@
        <widget class="QPushButton" name="addchart">
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>84</width>
           <height>16777215</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">/* CSS */
+
+QPushButton{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 20px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+content:XD;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+        </property>
         <property name="text">
-         <string>Add chart</string>
+         <string>Add Chart</string>
         </property>
        </widget>
       </item>
@@ -176,9 +280,40 @@
        <widget class="QComboBox" name="function_list">
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>84</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* CSS */
+
+QComboBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 20px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+QComboBox:hover{
+background:#1C6F28;
+color:white;
+content:XD;
+font: 75 14px &quot;Source Code Pro&quot;;}
+
+QComboBox:on { 
+    padding-top: 2px;
+    padding-left: 2px;
+background:#60E318;
+}
+QComboBox::down-arrow {
+background:#30A641;
+    image:url(&quot;arrow.png&quot;);
+}</string>
         </property>
         <property name="currentText">
          <string>empty</string>
@@ -188,6 +323,38 @@
           <string>empty</string>
          </property>
         </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="exp">
+        <property name="styleSheet">
+         <string notr="true">/* CSS */
+
+QPushButton{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 20px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+content:XD;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Export</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -207,12 +374,41 @@
        <widget class="QCheckBox" name="checkBox">
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>190</width>
           <height>16777215</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QCheckBox {
+font: 75 12pt &quot;Source Code Pro&quot;;
+
+    spacing: 5px;
+
+}
+
+QCheckBox::indicator {
+    width: 19px;
+    height: 19px;
+	
+}
+QCheckBox::indicator:unchecked:hover{
+backgroud-color:green;
+}
+
+QCheckBox::indicator:checked{
+img:icon.png;
+}
+</string>
+        </property>
         <property name="text">
-         <string>Dark theme</string>
+         <string>Dark Theme</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/theme_light_dark_icon_137104.ico</normaloff>:/theme_light_dark_icon_137104.ico</iconset>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
         <property name="tristate">
          <bool>false</bool>
@@ -221,11 +417,33 @@
       </item>
       <item>
        <widget class="QPushButton" name="delete_selected_graph">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>16777215</height>
+          <width>80</width>
+          <height>50</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* CSS */
+
+QPushButton{
+  background: #FF4742;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+QPushButton:hover{
+background:darkred;
+color:white;
+content:XD;
+
+}
+</string>
         </property>
         <property name="text">
          <string>Delete</string>
@@ -242,7 +460,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -256,6 +474,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

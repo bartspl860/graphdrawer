@@ -27,6 +27,8 @@ private slots:
 
     void on_checkBox_stateChanged(int arg1);
 
+    void on_exp_clicked();
+
 private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;
