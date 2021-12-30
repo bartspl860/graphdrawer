@@ -189,13 +189,12 @@ height:30px;
 color:white;
 font-size:15px;
 font-family:Times New Roman;
-font: 75 14px &quot;Source Code Pro&quot;;
+font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
 background:#1C6F28;
 color:white;
-content:XD;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -258,13 +257,12 @@ height:30px;
 color:white;
 font-size:15px;
 font-family:Times New Roman;
-font: 75 14px &quot;Source Code Pro&quot;;
+font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
 background:#1C6F28;
 color:white;
-content:XD;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -294,16 +292,13 @@ QComboBox{
   max-width:80%;
 height:30px;
 color:white;
-font-size:15px;
-font-family:Times New Roman;
-font: 75 14px &quot;Source Code Pro&quot;;
+font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QComboBox:hover{
 background:#1C6F28;
 color:white;
-content:XD;
-font: 75 14px &quot;Source Code Pro&quot;;}
+font: 75 14px bold&quot;Source Code Pro&quot;;}
 
 QComboBox:on { 
     padding-top: 2px;
@@ -315,12 +310,15 @@ background:#30A641;
     image:url(&quot;arrow.png&quot;);
 }</string>
         </property>
+        <property name="editable">
+         <bool>false</bool>
+        </property>
         <property name="currentText">
-         <string>empty</string>
+         <string>Empty</string>
         </property>
         <item>
          <property name="text">
-          <string>empty</string>
+          <string>Empty</string>
          </property>
         </item>
        </widget>
@@ -345,7 +343,6 @@ font: 75 14px &quot;Source Code Pro&quot;;
 QPushButton:hover{
 background:#1C6F28;
 color:white;
-content:XD;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -383,6 +380,7 @@ font: 75 14px &quot;Source Code Pro&quot;;
 font: 75 12pt &quot;Source Code Pro&quot;;
 
     spacing: 5px;
+	color:white;
 
 }
 
@@ -391,21 +389,23 @@ QCheckBox::indicator {
     height: 19px;
 	
 }
-QCheckBox::indicator:unchecked:hover{
-backgroud-color:green;
-}
-
 QCheckBox::indicator:checked{
-img:icon.png;
+backgroud:green;
 }
 </string>
         </property>
         <property name="text">
-         <string>Dark Theme</string>
+         <string/>
         </property>
         <property name="icon">
          <iconset resource="resources.qrc">
           <normaloff>:/theme_light_dark_icon_137104.ico</normaloff>:/theme_light_dark_icon_137104.ico</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -436,11 +436,12 @@ QPushButton{
   background: #FF4742;
   border: 1px solid black;
   border-radius: 20px;
+font: 75 8pt &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
 background:darkred;
 color:white;
-content:XD;
+
 
 }
 </string>

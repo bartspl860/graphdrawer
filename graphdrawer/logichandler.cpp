@@ -103,7 +103,7 @@ void LogicHandler::delete_selected_plot(){
     chartCreator_instance.createGraph(logic_plot);
     if(logic_combo->count() == 0){
         list_at_start = true;
-        logic_combo->addItem("empty");
+        logic_combo->addItem("Empty");
     }
     lastly_selected_graph = -1;
 }

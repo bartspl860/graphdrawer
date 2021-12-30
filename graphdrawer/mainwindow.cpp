@@ -7,8 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
     this->setStyleSheet("background-color:#2F4F4F;");
+
 
 
 
@@ -30,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->plot->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
 
     ui->plot->replot();
+
 }
 
 void MainWindow::getSelect(){
@@ -60,7 +64,21 @@ void MainWindow::on_addchart_clicked()
 
 void MainWindow::on_delete_selected_graph_clicked()
 {
-    logicHandler_instance.delete_selected_plot();
+
+    QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"U Sure M8?" ,
+                                                                    tr("U Sure M8?\n"),
+                                                                    QMessageBox::Cancel | QMessageBox::Yes);
+    if (resBtn == QMessageBox::Cancel)
+        {
+            QMessageBox().close();
+
+        }
+        else if (resBtn == QMessageBox::Yes)
+        {
+            logicHandler_instance.delete_selected_plot();
+        }
+
+
 }
 
 
