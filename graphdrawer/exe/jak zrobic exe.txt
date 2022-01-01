@@ -1,0 +1,3 @@
+otworzyc konsole qt mscv
+wejsc do folderu exe
+wpisac windeployqt.exe
