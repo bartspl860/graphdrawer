@@ -183,7 +183,7 @@ color:white;</string>
 QPushButton{
   background: #249334;
   border: 2px solid black;
-  border-radius: 30px;
+  border-radius: 6px;
   max-width:80%;
 height:30px;
 color:white;
@@ -251,7 +251,7 @@ font: 75 14px &quot;Source Code Pro&quot;;
 QPushButton{
   background: #249334;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 6px;
   max-width:80%;
 height:30px;
 color:white;
@@ -288,7 +288,7 @@ font: 75 14px &quot;Source Code Pro&quot;;
 QComboBox{
   background: #249334;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 6px;
   max-width:80%;
 height:30px;
 color:white;
@@ -331,7 +331,7 @@ background:#30A641;
 QPushButton{
   background: #249334;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 6px;
   max-width:80%;
 height:30px;
 color:white;
@@ -366,6 +366,13 @@ font: 75 14px &quot;Source Code Pro&quot;;
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="checkBox">
