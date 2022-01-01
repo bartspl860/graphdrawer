@@ -337,7 +337,7 @@ height:30px;
 color:white;
 font-size:15px;
 font-family:Times New Roman;
-font: 75 14px &quot;Source Code Pro&quot;;
+font: 75 14px  bold&quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
@@ -366,13 +366,6 @@ font: 75 14px &quot;Source Code Pro&quot;;
          </size>
         </property>
        </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="checkBox">
@@ -440,15 +433,15 @@ backgroud:green;
          <string notr="true">/* CSS */
 
 QPushButton{
-  background: #FF4742;
-  border: 1px solid black;
-  border-radius: 20px;
-font: 75 8pt &quot;Source Code Pro&quot;;
+  	background: #FF4742;
+  	border: 1px solid black;
+ 	 border-radius: 20px;
+	font: 75 8pt  &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-background:darkred;
-color:white;
-
+	background:darkred;
+	color:white;
+	font: 75 8pt bold&quot;Source Code Pro&quot;;
 
 }
 </string>
