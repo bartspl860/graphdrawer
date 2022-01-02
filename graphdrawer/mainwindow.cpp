@@ -62,7 +62,7 @@ void MainWindow::on_addchart_clicked()
                            ui->x_limit_positive->value(),
                            ui->y_limit_positive->value(),
                            ui->y_limit_negative->value()),
-                0.1);
+                           ui->graph_frequency->value());
 
     ui->function_name->clear();
     ui->function_source->clear();
