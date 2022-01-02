@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    this->setStyleSheet("background-color:#2F4F4F;");
+
+    this->setStyleSheet("background-image:url(:/bg.jpg);");
 
 
 
@@ -65,8 +66,8 @@ void MainWindow::on_addchart_clicked()
 void MainWindow::on_delete_selected_graph_clicked()
 {
 
-    QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"U Sure M8?" ,
-                                                                    tr("U Sure M8?\n"),
+    QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"Delete?" ,
+                                                                    tr("Are You sure, that you want to delete this chart?\n"),
                                                                     QMessageBox::Cancel | QMessageBox::Yes);
     if (resBtn == QMessageBox::Cancel)
         {
