@@ -24,18 +24,15 @@ private slots:
     void on_pick_color_clicked();
     void getColor(const QColor&);
     void onColorDestroy();
+    void onFileDestroy();
     void on_checkBox_stateChanged(int arg1);
     void on_exp_clicked();
     void on_export_json_clicked();
     void on_import_json_clicked();
     void getJSONFile(const QString &file);
-
     void on_x_limit_negative_valueChanged(double arg1);
-
     void on_y_limit_negative_valueChanged(double arg1);
-
     void on_x_limit_positive_valueChanged(double arg1);
-
     void on_y_limit_positive_valueChanged(double arg1);
 
 private:
