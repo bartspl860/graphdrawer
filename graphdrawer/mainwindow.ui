@@ -12,13 +12,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>500</height>
+    <width>916</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
+    <width>900</width>
     <height>500</height>
    </size>
   </property>
@@ -695,8 +695,8 @@ QPushButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>20</height>
+     <width>916</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
