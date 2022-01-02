@@ -115,11 +115,13 @@ void MainWindow::on_checkBox_stateChanged(int state)
 void MainWindow::on_exp_clicked()
 {
     ui->plot->saveBmp("graph.png",1000,1000);
+    QMessageBox::information(nullptr,"Exported to bmp" ,tr("Done!\n"));
 }
 
 void MainWindow::on_export_json_clicked()
 {
     logicHandler_instance.triggerExportJSON();
+QMessageBox::information(nullptr,"Exported to json" ,tr("Done!\n"));
 }
 
 
@@ -130,6 +132,8 @@ void MainWindow::on_import_json_clicked()
 
     this->hide();
     file_dialog->show();
+
+
 
     connect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
 }
