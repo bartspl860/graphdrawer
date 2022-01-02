@@ -409,6 +409,57 @@ font: 75 14px &quot;Source Code Pro&quot;;
        </layout>
       </item>
       <item>
+       <widget class="QLabel" name="label_6">
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Częstotliwość</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="graph_frequency">
+        <property name="maximumSize">
+         <size>
+          <width>84</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:black;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:green;
+color:black;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="label_3">
         <property name="maximumSize">
          <size>
