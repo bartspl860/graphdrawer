@@ -12,7 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     logicHandler_instance.logic_plot = ui->plot;
     logicHandler_instance.logic_combo = ui->function_list;
 
-    this->setStyleSheet("background-color:#2F4F4F;");
+
+    this->setStyleSheet("background-image:url(:/bg.jpg);");
 
     setWindowFlags(windowFlags() | Qt::CustomizeWindowHint |
                                    Qt::WindowMinimizeButtonHint |
@@ -51,7 +52,7 @@ void MainWindow::on_addchart_clicked()
     logicHandler_instance.createGraph(
                 ui->function_name->displayText(), current_color,
                 ui->function_source->displayText(),
-                ChartLimit(-10,10,10,-10),
+                ChartLimit(ui->x_limit_negative->value(),ui->x_limit_positive->value(),ui->y_limit_positive->value(),ui->y_limit_negative->value()),
                 0.1);
 
     ui->function_name->clear();
@@ -62,8 +63,9 @@ void MainWindow::on_addchart_clicked()
 
 void MainWindow::on_delete_selected_graph_clicked()
 {
-    QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"U Sure M8?" ,
-                                                                    tr("U Sure M8?\n"),
+
+    QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"Delete?" ,
+                                                                    tr("Are You sure, that you want to delete this chart?\n"),
                                                                     QMessageBox::Cancel | QMessageBox::Yes);
     if (resBtn == QMessageBox::Cancel)
         QMessageBox().close();
@@ -138,5 +140,33 @@ void MainWindow::getJSONFile(const QString& file){
     this->show();
 
     logicHandler_instance.triggerImportJSON(file);
+}
+
+
+void MainWindow::on_x_limit_negative_valueChanged(double x_limit_negative)
+{
+    if(x_limit_negative>=ui->x_limit_positive->value())
+        ui->x_limit_positive->setValue(x_limit_negative+1);
+}
+
+
+void MainWindow::on_y_limit_negative_valueChanged(double y_limit_negative)
+{
+    if(y_limit_negative>=ui->y_limit_positive->value())
+        ui->y_limit_positive->setValue(y_limit_negative+1);
+}
+
+
+void MainWindow::on_x_limit_positive_valueChanged(double x_limit_positive)
+{
+    if(x_limit_positive<=ui->x_limit_negative->value())
+        ui->x_limit_negative->setValue(x_limit_positive-1);
+}
+
+
+void MainWindow::on_y_limit_positive_valueChanged(double y_limit_positive)
+{
+    if(y_limit_positive<=ui->y_limit_negative->value())
+        ui->y_limit_negative->setValue(y_limit_positive-1);
 }
 

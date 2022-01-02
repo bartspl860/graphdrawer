@@ -12,13 +12,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>500</height>
+    <width>916</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
+    <width>900</width>
     <height>500</height>
    </size>
   </property>
@@ -59,9 +59,15 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="label_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>60</width>
           <height>16777215</height>
          </size>
         </property>
@@ -74,9 +80,17 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
         <property name="styleSheet">
          <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
-color:white;</string>
+color:white;
+
+</string>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
         </property>
         <property name="text">
          <string>Name</string>
@@ -93,17 +107,16 @@ color:white;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-border:2px solid black;
-border-radius:5px;
-color:black;
-background:white;
-
+	border:2px solid black;
+	border-radius:5px;
+	color:black;	
+	background:white;
 }
 QLineEdit:hover{
-border: 2px solid blue;
+	border: 2px solid blue;
 }
 QLineEdit:focus{
-border:2px solid red;
+	border:2px solid red;
 }</string>
         </property>
        </widget>
@@ -112,7 +125,7 @@ border:2px solid red;
        <widget class="QLabel" name="label">
         <property name="maximumSize">
          <size>
-          <width>200</width>
+          <width>110</width>
           <height>16777215</height>
          </size>
         </property>
@@ -135,26 +148,259 @@ color:white;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-border:2px solid black;
-border-radius:5px;
-color:black;
-background:white;
-
+	border:2px solid black;
+	border-radius:5px;
+	color:black;
+	background:white;
 }
 QLineEdit:hover{
-border: 2px solid blue;
+	border: 2px solid blue;
 }
 QLineEdit:focus{
-border:2px solid red;
+	border:2px solid red;
 }</string>
         </property>
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_4">
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>X Limit (-x,x)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QDoubleSpinBox" name="x_limit_negative">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483648.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="x_limit_positive">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Y Limit (-y,y)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QDoubleSpinBox" name="y_limit_negative">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="y_limit_positive">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QLabel" name="label_3">
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>80</width>
           <height>16777215</height>
          </size>
         </property>
@@ -181,22 +427,20 @@ color:white;</string>
            <string notr="true">/* CSS */
 
 QPushButton{
-  background: #249334;
-  border: 2px solid black;
-  border-radius: 6px;
-  max-width:80%;
-height:30px;
-color:white;
-font-size:15px;
-font-family:Times New Roman;
-font: 75 14px bold &quot;Source Code Pro&quot;;
-
+  	background: #249334;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font-size:15px;
+	font-family:Times New Roman;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
-font: 75 14px &quot;Source Code Pro&quot;;
-
+	background:#1C6F28;
+	color:white;
+	font: 75 14px &quot;Source Code Pro&quot;;
 }
 
 </string>
@@ -249,22 +493,20 @@ font: 75 14px &quot;Source Code Pro&quot;;
          <string notr="true">/* CSS */
 
 QPushButton{
-  background: #249334;
-  border: 2px solid black;
-  border-radius: 6px;
-  max-width:80%;
-height:30px;
-color:white;
-font-size:15px;
-font-family:Times New Roman;
-font: 75 14px bold &quot;Source Code Pro&quot;;
-
+  	background: #249334;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font-size:15px;
+	font-family:Times New Roman;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
-font: 75 14px &quot;Source Code Pro&quot;;
-
+	background:#1C6F28;
+	color:white;
+	font: 75 14px &quot;Source Code Pro&quot;;
 }
 
 </string>
@@ -286,28 +528,27 @@ font: 75 14px &quot;Source Code Pro&quot;;
          <string notr="true">/* CSS */
 
 QComboBox{
-  background: #249334;
-  border: 2px solid black;
-  border-radius: 6px;
-  max-width:80%;
-height:30px;
-color:white;
-font: 75 14px bold &quot;Source Code Pro&quot;;
-
+ 	background: #249334;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QComboBox:hover{
-background:#1C6F28;
-color:white;
-font: 75 14px bold&quot;Source Code Pro&quot;;}
-
+	background:#1C6F28;
+	color:white;
+	font: 75 14px bold&quot;Source Code Pro&quot;;
+}
 QComboBox:on { 
     padding-top: 2px;
     padding-left: 2px;
-background:#60E318;
+	background:#60E318;
 }
 QComboBox::down-arrow {
-background:#30A641;
-    image:url(&quot;arrow.png&quot;);
+	background:#30A641;
+    image:url(&quot;:/arrow.png&quot;);
 }</string>
         </property>
         <property name="editable">
@@ -329,22 +570,20 @@ background:#30A641;
          <string notr="true">/* CSS */
 
 QPushButton{
-  background: #249334;
-  border: 2px solid black;
-  border-radius: 6px;
-  max-width:80%;
-height:30px;
-color:white;
-font-size:15px;
-font-family:Times New Roman;
-font: 75 14px  bold&quot;Source Code Pro&quot;;
-
+  	background: #249334;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font-size:15px;
+	font-family:Times New Roman;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
-font: 75 14px &quot;Source Code Pro&quot;;
-
+	background:#1C6F28;
+	color:white;
+	font: 75 14px &quot;Source Code Pro&quot;;
 }
 
 </string>
@@ -417,23 +656,25 @@ font: 75 14px &quot;Source Code Pro&quot;;
        <widget class="QCheckBox" name="checkBox">
         <property name="maximumSize">
          <size>
-          <width>190</width>
+          <width>60</width>
           <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">QCheckBox {
-font: 75 12pt &quot;Source Code Pro&quot;;
+	font: 75 12pt &quot;Source Code Pro&quot;;
     spacing: 5px;
 	color:white;
 
 }
-
 QCheckBox::indicator {
     width: 19px;
-    height: 19px;
-	
-}</string>
+    height: 19px;	
+}
+QCheckBox::indicator:checked{
+	backgroud:green;
+}
+</string>
         </property>
         <property name="text">
          <string/>
@@ -475,15 +716,14 @@ QCheckBox::indicator {
 
 QPushButton{
   	background: #FF4742;
-  	border: 1px solid black;
- 	 border-radius: 20px;
+  	border: 2px solid black;
+ 	border-radius: 6px;
 	font: 75 8pt  &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
 	background:darkred;
 	color:white;
 	font: 75 8pt bold&quot;Source Code Pro&quot;;
-
 }
 </string>
         </property>
@@ -501,8 +741,8 @@ QPushButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>20</height>
+     <width>916</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

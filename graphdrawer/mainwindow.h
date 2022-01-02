@@ -30,6 +30,14 @@ private slots:
     void on_import_json_clicked();
     void getJSONFile(const QString &file);
 
+    void on_x_limit_negative_valueChanged(double arg1);
+
+    void on_y_limit_negative_valueChanged(double arg1);
+
+    void on_x_limit_positive_valueChanged(double arg1);
+
+    void on_y_limit_positive_valueChanged(double arg1);
+
 private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;

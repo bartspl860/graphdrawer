@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>arrow.png</file>
         <file>theme_light_dark_icon_137104.ico</file>
+        <file>bg.jpg</file>
+        <file>bg2.jpg</file>
     </qresource>
 </RCC>
