@@ -53,7 +53,7 @@ void MainWindow::on_addchart_clicked()
     logicHandler_instance.createGraph(
                 ui->function_name->displayText(), current_color,
                 ui->function_source->displayText(),
-                ChartLimit(-10,10,10,-10),
+                ChartLimit(ui->x_limit_negative->value(),ui->x_limit_positive->value(),ui->y_limit_positive->value(),ui->y_limit_negative->value()),
                 0.1, ui->plot, ui->function_list);
 
     ui->function_name->clear();
@@ -145,4 +145,32 @@ void MainWindow::on_exp_clicked()
     ui->plot->saveBmp("xd.png",1000,1000);
 }
 
+
+
+void MainWindow::on_x_limit_negative_valueChanged(double x_limit_negative)
+{
+    if(x_limit_negative>=ui->x_limit_positive->value())
+        ui->x_limit_positive->setValue(x_limit_negative+1);
+}
+
+
+void MainWindow::on_y_limit_negative_valueChanged(double y_limit_negative)
+{
+    if(y_limit_negative>=ui->y_limit_positive->value())
+        ui->y_limit_positive->setValue(y_limit_negative+1);
+}
+
+
+void MainWindow::on_x_limit_positive_valueChanged(double x_limit_positive)
+{
+    if(x_limit_positive<=ui->x_limit_negative->value())
+        ui->x_limit_negative->setValue(x_limit_positive-1);
+}
+
+
+void MainWindow::on_y_limit_positive_valueChanged(double y_limit_positive)
+{
+    if(y_limit_positive<=ui->y_limit_negative->value())
+        ui->y_limit_negative->setValue(y_limit_positive-1);
+}
 

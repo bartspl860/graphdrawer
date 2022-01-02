@@ -151,6 +151,240 @@ border:2px solid red;
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_4">
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>X Limit (-x,x)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QDoubleSpinBox" name="x_limit_negative">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483648.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="x_limit_positive">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 14pt &quot;Source Code Pro&quot;;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Y Limit (-y,y)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QDoubleSpinBox" name="y_limit_negative">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="y_limit_positive">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QDoubleSpinBox{
+  background: #249334;
+  border: 2px solid black;
+  border-radius: 6px;
+  max-width:80%;
+height:30px;
+color:white;
+font-size:15px;
+font-family:Times New Roman;
+font: 75 14px bold &quot;Source Code Pro&quot;;
+
+}
+QPushButton:hover{
+background:#1C6F28;
+color:white;
+font: 75 14px &quot;Source Code Pro&quot;;
+
+}
+
+</string>
+          </property>
+          <property name="minimum">
+           <double>-2147483647.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>2147483647.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QLabel" name="label_3">
         <property name="maximumSize">
          <size>
@@ -461,7 +695,7 @@ QPushButton:hover{
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
