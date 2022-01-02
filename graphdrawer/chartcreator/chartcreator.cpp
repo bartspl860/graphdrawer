@@ -23,8 +23,7 @@ void ChartCreator::addPoint(QPointF p){
 void ChartCreator::createGraph(QCustomPlot* plot){
 
     plot->clearGraphs();
-    all_graphs.clear();
-
+    all_graphs.clear();    
     int i = 0;
     foreach(auto value, all_series){
         plot->addGraph();
@@ -43,8 +42,63 @@ void ChartCreator::createGraph(QCustomPlot* plot){
     plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 
     plot->replot();
+
 }
 
-void ChartCreator::addSeriesFromJSONFile(){
+void ChartCreator::addSeriesFromJSONFile(const QString& file, QCustomPlot* plot, QComboBox* combo){
 
+    std::string file_name = file.toLocal8Bit().constData();
+    std::ifstream reader(file_name);
+
+    json j;
+    reader >> j;
+    reader.close();
+
+    std::string name = j["Name"];
+    std::string color_hex = j["Color"];
+    QColor color; color.setNamedColor(QString::fromUtf8(color_hex.c_str()));
+    ChartLimit lim = ChartLimit(j["Limit"]["Left"],
+            j["Limit"]["Right"],
+            j["Limit"]["Up"],
+            j["Limit"]["Down"]);
+    double axis_sensitivity = j["Sensitivity"];
+
+    createSeries(QString::fromUtf8(name.c_str()), color, lim, axis_sensitivity, "from JSON");
+
+    for(int i=0; i < j["Data"]["x"].size(); i++){
+        addPoint(QPointF(j["Data"]["x"][i], j["Data"]["y"][i]));
+    }
+
+
+    if(name != "")
+        combo->addItem(QString::fromUtf8(name.c_str()));
+    else
+        combo->addItem(file);
+
+    createGraph(plot);
+}
+
+void ChartCreator::insertSeriesToJSONFile(int selected_graph){
+
+    json j;
+    Series series = all_series[selected_graph];
+
+    j["Name"] = (series.getName().toLocal8Bit().constData());
+    j["Sensitivity"] = (series.getSen());
+    j["Color"] = (series.getColor().name().toLocal8Bit().constData());
+    j["Limit"]["Left"] = series.getLimit().getL();
+    j["Limit"]["Right"] = series.getLimit().getR();
+    j["Limit"]["Down"] = series.getLimit().getD();
+    j["Limit"]["Up"] = series.getLimit().getU();
+
+    int lim = all_series[selected_graph].series_x.size()-1;
+
+    for(int i=0;i<lim;i++){
+        j["Data"]["x"] += series.series_x[i];
+        j["Data"]["y"] += series.series_y[i];
+    }
+
+    std::ofstream writer;
+    writer.open("data.json", std::ifstream::trunc);
+    writer << j.dump(4);
 }

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>input.json</file>
         <file>arrow.png</file>
         <file>theme_light_dark_icon_137104.ico</file>
     </qresource>

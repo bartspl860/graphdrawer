@@ -10,8 +10,6 @@
 
 using json = nlohmann::json;
 
-
-
 class ChartCreator
 {
     friend class LogicHandler;
@@ -26,7 +24,8 @@ public:
     void createSeries(QString name, QColor color, ChartLimit limit, double axix_sen, QString exp);
     void addPoint(QPointF p);
     void createGraph(QCustomPlot* frame);
-    void addSeriesFromJSONFile();
+    void addSeriesFromJSONFile(const QString& file, QCustomPlot* plot, QComboBox* combo);
+    void insertSeriesToJSONFile(int selected_graph);
 };
 
 #endif // CHARTCREATOR_H

@@ -12,14 +12,17 @@
 class LogicHandler : public QObject
 {
     Q_OBJECT
+    friend class MainWindow;
 public:
     explicit LogicHandler(QObject *parent = nullptr);
     void createGraph(QString name, QColor color, QString exp, ChartLimit lim,
-                     double sens, QCustomPlot* dest, QComboBox* list);
+                     double sens);
     void createGraph(QCustomPlot* dest, QComboBox* list);
     char* getExpressionResult(QString, double);
     void getSelectedGraph();
     void delete_selected_plot();
+    void triggerExportJSON();
+    void triggerImportJSON(const QString& file);
 private:
     bool list_at_start = true;
     Parser parser_instance;
@@ -27,5 +30,6 @@ private:
     int lastly_selected_graph = -1;
     QCustomPlot* logic_plot;
     QComboBox* logic_combo;
+
 };
 #endif // LOGICHANDLER_H

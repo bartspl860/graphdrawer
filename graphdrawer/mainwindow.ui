@@ -350,9 +350,55 @@ font: 75 14px &quot;Source Code Pro&quot;;
 </string>
         </property>
         <property name="text">
-         <string>Export</string>
+         <string>Export BMP</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="export_json">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Export JSON</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="import_json">
+          <property name="maximumSize">
+           <size>
+            <width>84</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Import JSON</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
       <item>
        <spacer name="verticalSpacer">
@@ -378,7 +424,6 @@ font: 75 14px &quot;Source Code Pro&quot;;
         <property name="styleSheet">
          <string notr="true">QCheckBox {
 font: 75 12pt &quot;Source Code Pro&quot;;
-
     spacing: 5px;
 	color:white;
 
@@ -388,11 +433,7 @@ QCheckBox::indicator {
     width: 19px;
     height: 19px;
 	
-}
-QCheckBox::indicator:checked{
-backgroud:green;
-}
-</string>
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -461,7 +502,7 @@ QPushButton:hover{
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

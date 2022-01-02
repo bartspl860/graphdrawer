@@ -27,8 +27,7 @@ char* LogicHandler::getExpressionResult(QString exp, double x){
 }
 
 void LogicHandler::createGraph(QString name, QColor color, QString expression,
-                               ChartLimit limit, double axix_x_sensitivity,
-                               QCustomPlot* plot, QComboBox* list)
+                               ChartLimit limit, double axix_x_sensitivity)
 {
     QVector<QPointF> data;
     double iterator = limit.getL();
@@ -54,15 +53,13 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
     }
 
     if(list_at_start){
-        logic_combo = list;
-        logic_plot = plot;
-        list->clear(); list_at_start = false;
+        logic_combo->clear(); list_at_start = false;
     }
 
     if(name.isEmpty())
-        list->addItem(expression);
+        logic_combo->addItem(expression);
     else
-        list->addItem(name);
+        logic_combo->addItem(name);
 
     chartCreator_instance.createSeries(name, color, limit, axix_x_sensitivity, expression);
 
@@ -70,7 +67,7 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
         chartCreator_instance.addPoint(value);
     }
 
-    chartCreator_instance.createGraph(plot);
+    chartCreator_instance.createGraph(logic_plot);
 }
 
 void LogicHandler::createGraph(QCustomPlot* frame, QComboBox* list){
@@ -89,6 +86,8 @@ void LogicHandler::getSelectedGraph(){
         i++;
     }
     logic_combo->setCurrentIndex(lastly_selected_graph);
+
+    qDebug() << lastly_selected_graph;
 }
 
 void LogicHandler::delete_selected_plot(){
@@ -106,4 +105,16 @@ void LogicHandler::delete_selected_plot(){
         logic_combo->addItem("Empty");
     }
     lastly_selected_graph = -1;
+}
+
+void LogicHandler::triggerExportJSON(){
+    if(lastly_selected_graph != -1)
+        chartCreator_instance.insertSeriesToJSONFile(lastly_selected_graph);
+}
+
+void LogicHandler::triggerImportJSON(const QString &file){
+    if(list_at_start){
+        logic_combo->clear(); list_at_start = false;
+    }
+    chartCreator_instance.addSeriesFromJSONFile(file, logic_plot, logic_combo);
 }

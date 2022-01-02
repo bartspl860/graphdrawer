@@ -9,11 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    logicHandler_instance.logic_plot = ui->plot;
+    logicHandler_instance.logic_combo = ui->function_list;
 
     this->setStyleSheet("background-color:#2F4F4F;");
-
-
-
 
     setWindowFlags(windowFlags() | Qt::CustomizeWindowHint |
                                    Qt::WindowMinimizeButtonHint |
@@ -47,14 +46,13 @@ MainWindow::~MainWindow()
 }
 
 
-
 void MainWindow::on_addchart_clicked()
 {
     logicHandler_instance.createGraph(
                 ui->function_name->displayText(), current_color,
                 ui->function_source->displayText(),
                 ChartLimit(-10,10,10,-10),
-                0.1, ui->plot, ui->function_list);
+                0.1);
 
     ui->function_name->clear();
     ui->function_source->clear();
@@ -64,23 +62,14 @@ void MainWindow::on_addchart_clicked()
 
 void MainWindow::on_delete_selected_graph_clicked()
 {
-
     QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"U Sure M8?" ,
                                                                     tr("U Sure M8?\n"),
                                                                     QMessageBox::Cancel | QMessageBox::Yes);
     if (resBtn == QMessageBox::Cancel)
-        {
-            QMessageBox().close();
-
-        }
-        else if (resBtn == QMessageBox::Yes)
-        {
-            logicHandler_instance.delete_selected_plot();
-        }
-
-
+        QMessageBox().close();
+    else if (resBtn == QMessageBox::Yes)
+        logicHandler_instance.delete_selected_plot();
 }
-
 
 void MainWindow::on_pick_color_clicked()
 {
@@ -111,30 +100,11 @@ void MainWindow::on_checkBox_stateChanged(int state)
         plotGradient.setColorAt(0, QColor(80, 80, 80));
         plotGradient.setColorAt(1, QColor(50, 50, 50));
 
-        ui->plot->setBackground(plotGradient);
-
-        ui->plot->xAxis->setBasePen(QPen(Qt::white, 1));
-        ui->plot->yAxis->setBasePen(QPen(Qt::white, 1));
-
-        ui->plot->xAxis->setTickLabelColor(Qt::white);
-        ui->plot->yAxis->setTickLabelColor(Qt::white);
-
-        ui->plot->xAxis->setSubTickPen(QPen(Qt::white, 1));
-        ui->plot->yAxis->setSubTickPen(QPen(Qt::white, 1));
+        essentials::setGraphTheme(plotGradient, Qt::white, ui->plot);
     }
     else{
-        ui->plot->setBackground(QLinearGradient());
-
-        ui->plot->xAxis->setBasePen(QPen(Qt::black, 1));
-        ui->plot->yAxis->setBasePen(QPen(Qt::black, 1));
-
-        ui->plot->xAxis->setTickLabelColor(Qt::black);
-        ui->plot->yAxis->setTickLabelColor(Qt::black);
-
-        ui->plot->xAxis->setSubTickPen(QPen(Qt::black, 1));
-        ui->plot->yAxis->setSubTickPen(QPen(Qt::black, 1));
+        essentials::setGraphTheme(QLinearGradient(), Qt::black, ui->plot);
     }
-
 
     ui->plot->replot();
 }
@@ -142,7 +112,31 @@ void MainWindow::on_checkBox_stateChanged(int state)
 
 void MainWindow::on_exp_clicked()
 {
-    ui->plot->saveBmp("xd.png",1000,1000);
+    ui->plot->saveBmp("graph.png",1000,1000);
 }
 
+void MainWindow::on_export_json_clicked()
+{
+    logicHandler_instance.triggerExportJSON();
+}
+
+
+void MainWindow::on_import_json_clicked()
+{
+    file_dialog = new QFileDialog();
+    file_dialog->setNameFilter(tr("JSON files (*.json)"));
+
+    this->hide();
+    file_dialog->show();
+
+    connect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
+}
+
+void MainWindow::getJSONFile(const QString& file){
+    disconnect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
+    file_dialog->deleteLater();
+    this->show();
+
+    logicHandler_instance.triggerImportJSON(file);
+}
 

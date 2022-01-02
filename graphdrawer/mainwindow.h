@@ -24,15 +24,17 @@ private slots:
     void on_pick_color_clicked();
     void getColor(const QColor&);
     void onColorDestroy();
-
     void on_checkBox_stateChanged(int arg1);
-
     void on_exp_clicked();
+    void on_export_json_clicked();
+    void on_import_json_clicked();
+    void getJSONFile(const QString &file);
 
 private:
     Ui::MainWindow *ui;
     LogicHandler logicHandler_instance;
     QColorDialog* color_picker;
     QColor current_color = Qt::black;
+    QFileDialog* file_dialog;
 };
 #endif // MAINWINDOW_H
