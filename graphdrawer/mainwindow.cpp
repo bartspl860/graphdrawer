@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     logicHandler_instance.logic_plot = ui->plot;
     logicHandler_instance.logic_combo = ui->function_list;
 
-
     this->setStyleSheet("background-image:url(:/bg.jpg);");
 
     setWindowFlags(windowFlags() | Qt::CustomizeWindowHint |
@@ -39,7 +38,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->plot->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
 
     ui->plot->replot();
-
 }
 
 void MainWindow::getSelect(){
@@ -74,7 +72,6 @@ void MainWindow::on_addchart_clicked()
 
 void MainWindow::on_delete_selected_graph_clicked()
 {
-
     QMessageBox::StandardButton resBtn = QMessageBox::question(nullptr,"Delete?" ,
                                                                     tr("Are You sure, that you want to delete this chart?\n"),
                                                                     QMessageBox::Cancel | QMessageBox::Yes);
@@ -126,7 +123,6 @@ void MainWindow::on_checkBox_stateChanged(int state)
     ui->plot->replot();
 }
 
-
 void MainWindow::on_exp_clicked()
 {
     ui->plot->saveBmp("graph.png",1000,1000);
@@ -136,7 +132,6 @@ void MainWindow::on_export_json_clicked()
 {
     logicHandler_instance.triggerExportJSON();
 }
-
 
 void MainWindow::on_import_json_clicked()
 {
@@ -150,7 +145,6 @@ void MainWindow::getJSONFile(const QString& file){
     logicHandler_instance.triggerImportJSON(file);
 }
 
-
 void MainWindow::on_x_limit_negative_valueChanged(double arg)
 {
     Q_UNUSED(arg);
@@ -158,7 +152,6 @@ void MainWindow::on_x_limit_negative_valueChanged(double arg)
     if(ui->x_limit_negative->value() >= ui->x_limit_positive->value())
         ui->x_limit_positive->setValue(ui->x_limit_negative->value()+1);
 }
-
 
 void MainWindow::on_y_limit_negative_valueChanged(double arg)
 {
@@ -168,7 +161,6 @@ void MainWindow::on_y_limit_negative_valueChanged(double arg)
         ui->y_limit_positive->setValue(ui->y_limit_negative->value()+1);
 }
 
-
 void MainWindow::on_x_limit_positive_valueChanged(double arg)
 {
     Q_UNUSED(arg);
@@ -177,7 +169,6 @@ void MainWindow::on_x_limit_positive_valueChanged(double arg)
         ui->x_limit_negative->setValue(ui->x_limit_positive->value()-1);
 }
 
-
 void MainWindow::on_y_limit_positive_valueChanged(double arg)
 {
     Q_UNUSED(arg);
@@ -185,4 +176,3 @@ void MainWindow::on_y_limit_positive_valueChanged(double arg)
     if(ui->y_limit_positive->value() <= ui->y_limit_negative->value())
         ui->y_limit_negative->setValue(ui->y_limit_positive->value()-1);
 }
-

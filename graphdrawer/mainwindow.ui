@@ -771,7 +771,7 @@ QPushButton{
   	background: #FF4742;
   	border: 2px solid black;
  	border-radius: 6px;
-	font: 75 8pt  &quot;Source Code Pro&quot;;
+	font: 75 10pt  &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
 	background:darkred;

@@ -70,12 +70,6 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
     chartCreator_instance.createGraph(logic_plot);
 }
 
-void LogicHandler::createGraph(QCustomPlot* frame, QComboBox* list){
-
-    //chartCreator_instance.addSeriesFromJSONFile();
-    //chartCreator_instance.createChart(frame);
-}
-
 void LogicHandler::getSelectedGraph(){
     int i=0;
     foreach(auto value, chartCreator_instance.all_graphs){
@@ -86,8 +80,6 @@ void LogicHandler::getSelectedGraph(){
         i++;
     }
     logic_combo->setCurrentIndex(lastly_selected_graph);
-
-    qDebug() << lastly_selected_graph;
 }
 
 void LogicHandler::delete_selected_plot(){

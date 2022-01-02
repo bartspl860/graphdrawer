@@ -15,9 +15,7 @@ class LogicHandler : public QObject
     friend class MainWindow;
 public:
     explicit LogicHandler(QObject *parent = nullptr);
-    void createGraph(QString name, QColor color, QString exp, ChartLimit lim,
-                     double sens);
-    void createGraph(QCustomPlot* dest, QComboBox* list);
+    void createGraph(QString name, QColor color, QString exp, ChartLimit lim, double sens);
     char* getExpressionResult(QString, double);
     void getSelectedGraph();
     void delete_selected_plot();
