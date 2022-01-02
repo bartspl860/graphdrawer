@@ -27,12 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(color_picker, &QColorDialog::colorSelected, this, &MainWindow::getColor);
     connect(color_picker, &QColorDialog::rejected, this, &MainWindow::onColorDestroy);
 
-    file_dialog = new QFileDialog();
-    file_dialog->setNameFilter(tr("JSON files (*.json)"));
-    file_dialog->hide();
-    connect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
-    connect(file_dialog, &QFileDialog::rejected, this, &MainWindow::onFileDestroy);
-
     essentials::setLabelColor(ui->label_color, Qt::black);
 
     ui->plot->xAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
@@ -49,7 +43,6 @@ void MainWindow::getSelect(){
 MainWindow::~MainWindow()
 {
     color_picker->deleteLater();
-    file_dialog->deleteLater();
     delete ui;
 }
 
@@ -57,13 +50,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_addchart_clicked()
 {
     logicHandler_instance.createGraph(
-                ui->function_name->displayText(),
-                current_color,
+                ui->function_name->displayText(), current_color,
                 ui->function_source->displayText(),
-                ChartLimit(ui->x_limit_negative->value(),
-                           ui->x_limit_positive->value(),
-                           ui->y_limit_positive->value(),
-                           ui->y_limit_negative->value()),
+                ChartLimit(ui->x_limit_negative->value(),ui->x_limit_positive->value(),ui->y_limit_positive->value(),ui->y_limit_negative->value()),
                 0.1);
 
     ui->function_name->clear();
@@ -103,10 +92,6 @@ void MainWindow::onColorDestroy(){
     this->show();
 }
 
-void MainWindow::onFileDestroy(){
-    file_dialog->hide();
-    this->show();
-}
 
 void MainWindow::on_checkBox_stateChanged(int state)
 {
@@ -130,59 +115,62 @@ void MainWindow::on_checkBox_stateChanged(int state)
 void MainWindow::on_exp_clicked()
 {
     ui->plot->saveBmp("graph.png",1000,1000);
+    QMessageBox::information(nullptr,"Exported to bmp" ,tr("Done!\n"));
 }
 
 void MainWindow::on_export_json_clicked()
 {
     logicHandler_instance.triggerExportJSON();
+QMessageBox::information(nullptr,"Exported to json" ,tr("Done!\n"));
 }
 
 
 void MainWindow::on_import_json_clicked()
 {
+    file_dialog = new QFileDialog();
+    file_dialog->setNameFilter(tr("JSON files (*.json)"));
+
     this->hide();
     file_dialog->show();
+
+
+
+    connect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
 }
 
 void MainWindow::getJSONFile(const QString& file){
+    disconnect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
+    file_dialog->deleteLater();
     this->show();
 
     logicHandler_instance.triggerImportJSON(file);
 }
 
 
-void MainWindow::on_x_limit_negative_valueChanged(double arg)
+void MainWindow::on_x_limit_negative_valueChanged(double x_limit_negative)
 {
-    Q_UNUSED(arg);
-
-    if(ui->x_limit_negative->value() >= ui->x_limit_positive->value())
-        ui->x_limit_positive->setValue(ui->x_limit_negative->value()+1);
+    if(x_limit_negative>=ui->x_limit_positive->value())
+        ui->x_limit_positive->setValue(x_limit_negative+1);
 }
 
 
-void MainWindow::on_y_limit_negative_valueChanged(double arg)
+void MainWindow::on_y_limit_negative_valueChanged(double y_limit_negative)
 {
-    Q_UNUSED(arg);
-
-    if(ui->y_limit_negative->value() >= ui->y_limit_positive->value())
-        ui->y_limit_positive->setValue(ui->y_limit_negative->value()+1);
+    if(y_limit_negative>=ui->y_limit_positive->value())
+        ui->y_limit_positive->setValue(y_limit_negative+1);
 }
 
 
-void MainWindow::on_x_limit_positive_valueChanged(double arg)
+void MainWindow::on_x_limit_positive_valueChanged(double x_limit_positive)
 {
-    Q_UNUSED(arg);
-
-    if(ui->x_limit_positive->value() <= ui->x_limit_negative->value())
-        ui->x_limit_negative->setValue(ui->x_limit_positive->value()-1);
+    if(x_limit_positive<=ui->x_limit_negative->value())
+        ui->x_limit_negative->setValue(x_limit_positive-1);
 }
 
 
-void MainWindow::on_y_limit_positive_valueChanged(double arg)
+void MainWindow::on_y_limit_positive_valueChanged(double y_limit_positive)
 {
-    Q_UNUSED(arg);
-
-    if(ui->y_limit_positive->value() <= ui->y_limit_negative->value())
-        ui->y_limit_negative->setValue(ui->y_limit_positive->value()-1);
+    if(y_limit_positive<=ui->y_limit_negative->value())
+        ui->y_limit_negative->setValue(y_limit_positive-1);
 }
 
