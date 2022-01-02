@@ -457,6 +457,9 @@ font: 75 14px &quot;Source Code Pro&quot;;
 
 </string>
         </property>
+        <property name="minimum">
+         <double>0.010000000000000</double>
+        </property>
        </widget>
       </item>
       <item>
