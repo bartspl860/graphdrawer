@@ -193,20 +193,20 @@ color:white;</string>
            <string notr="true">/* CSS */
 
 QDoubleSpinBox{
-  background: #249334;
+  background: white;
   border: 2px solid black;
   border-radius: 6px;
   max-width:80%;
 height:30px;
-color:white;
+color:black;
 font-size:15px;
 font-family:Times New Roman;
 font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
+background:green;
+color:black;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -233,20 +233,20 @@ font: 75 14px &quot;Source Code Pro&quot;;
            <string notr="true">/* CSS */
 
 QDoubleSpinBox{
-  background: #249334;
+  background: white;
   border: 2px solid black;
   border-radius: 6px;
   max-width:80%;
 height:30px;
-color:white;
+color:black;
 font-size:15px;
 font-family:Times New Roman;
 font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
+background:green;
+color:black;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -310,20 +310,20 @@ color:white;</string>
            <string notr="true">/* CSS */
 
 QDoubleSpinBox{
-  background: #249334;
+  background: white;
   border: 2px solid black;
   border-radius: 6px;
   max-width:80%;
 height:30px;
-color:white;
+color:black;
 font-size:15px;
 font-family:Times New Roman;
 font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
+background:green;
+color:black;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -350,20 +350,20 @@ font: 75 14px &quot;Source Code Pro&quot;;
            <string notr="true">/* CSS */
 
 QDoubleSpinBox{
-  background: #249334;
+  background: white;
   border: 2px solid black;
   border-radius: 6px;
   max-width:80%;
 height:30px;
-color:white;
+color:black;
 font-size:15px;
 font-family:Times New Roman;
 font: 75 14px bold &quot;Source Code Pro&quot;;
 
 }
 QPushButton:hover{
-background:#1C6F28;
-color:white;
+background:green;
+color:black;
 font: 75 14px &quot;Source Code Pro&quot;;
 
 }
@@ -493,19 +493,19 @@ QPushButton:hover{
          <string notr="true">/* CSS */
 
 QPushButton{
-  	background: #249334;
+  	background: gold;
   	border: 2px solid black;
   	border-radius: 6px;
   	max-width:80%;
 	height:30px;
-	color:white;
+	color:black;
 	font-size:15px;
 	font-family:Times New Roman;
 	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-	background:#1C6F28;
-	color:white;
+	background:#bfb70f;
+	color:black;
 	font: 75 14px &quot;Source Code Pro&quot;;
 }
 
@@ -570,7 +570,7 @@ QComboBox::down-arrow {
          <string notr="true">/* CSS */
 
 QPushButton{
-  	background: #249334;
+  	background: grey;
   	border: 2px solid black;
   	border-radius: 6px;
   	max-width:80%;
@@ -581,7 +581,7 @@ QPushButton{
 	font: 75 14px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
-	background:#1C6F28;
+	background:#47473c;
 	color:white;
 	font: 75 14px &quot;Source Code Pro&quot;;
 }
@@ -599,9 +599,31 @@ QPushButton:hover{
          <widget class="QPushButton" name="export_json">
           <property name="maximumSize">
            <size>
-            <width>84</width>
+            <width>93</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QPushButton{
+  	background: #415fcc;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font-size:15px;
+	font-family:Times New Roman;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
+}
+QPushButton:hover{
+	background:#1f2d61;
+	color:white;
+	font: 75 14px &quot;Source Code Pro&quot;;
+}
+
+</string>
           </property>
           <property name="text">
            <string>Export JSON</string>
@@ -612,9 +634,31 @@ QPushButton:hover{
          <widget class="QPushButton" name="import_json">
           <property name="maximumSize">
            <size>
-            <width>84</width>
+            <width>93</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
+
+QPushButton{
+  	background: #415fcc;
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+	color:white;
+	font-size:15px;
+	font-family:Times New Roman;
+	font: 75 14px bold &quot;Source Code Pro&quot;;
+}
+QPushButton:hover{
+	background:#1f2d61;
+	color:white;
+	font: 75 14px &quot;Source Code Pro&quot;;
+}
+
+</string>
           </property>
           <property name="text">
            <string>Import JSON</string>
@@ -685,7 +729,7 @@ QCheckBox::indicator:checked{
         </property>
         <property name="iconSize">
          <size>
-          <width>40</width>
+          <width>30</width>
           <height>40</height>
          </size>
         </property>
