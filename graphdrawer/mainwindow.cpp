@@ -130,8 +130,7 @@ void MainWindow::on_exp_clicked()
 
 void MainWindow::on_export_json_clicked()
 {
-    logicHandler_instance.triggerExportJSON();
-    QMessageBox::information(nullptr,"Exported to json" ,tr("Done!\n"));
+    logicHandler_instance.triggerExportJSON();    
 }
 
 void MainWindow::on_import_json_clicked()

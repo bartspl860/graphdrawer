@@ -100,8 +100,10 @@ void LogicHandler::delete_selected_plot(){
 }
 
 void LogicHandler::triggerExportJSON(){
-    if(lastly_selected_graph != -1)
+    if(lastly_selected_graph != -1){
         chartCreator_instance.insertSeriesToJSONFile(lastly_selected_graph);
+        QMessageBox::information(nullptr,"Exported to json" ,tr("Done!\n"));
+    }
 }
 
 void LogicHandler::triggerImportJSON(const QString &file){
