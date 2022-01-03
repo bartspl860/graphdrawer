@@ -99,9 +99,15 @@ color:white;
       </item>
       <item>
        <widget class="QLineEdit" name="function_name">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>120</height>
          </size>
         </property>
@@ -140,9 +146,15 @@ color:white;</string>
       </item>
       <item>
        <widget class="QLineEdit" name="function_source">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>200</height>
          </size>
         </property>
@@ -421,7 +433,7 @@ font: 75 14px &quot;Source Code Pro&quot;;
 color:white;</string>
         </property>
         <property name="text">
-         <string>Częstotliwość</string>
+         <string>Frequency</string>
         </property>
        </widget>
       </item>
@@ -457,7 +469,13 @@ font: 75 14px &quot;Source Code Pro&quot;;
 
 </string>
         </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
         <property name="minimum">
+         <double>0.010000000000000</double>
+        </property>
+        <property name="singleStep">
          <double>0.010000000000000</double>
         </property>
        </widget>
@@ -483,6 +501,12 @@ color:white;</string>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QPushButton" name="pick_color">
+          <property name="minimumSize">
+           <size>
+            <width>84</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>84</width>
@@ -520,9 +544,17 @@ QPushButton:hover{
          <widget class="QLabel" name="label_color">
           <property name="maximumSize">
            <size>
-            <width>50</width>
-            <height>16777215</height>
+            <width>84</width>
+            <height>35</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel{
+  	border: 2px solid black;
+  	border-radius: 6px;
+  	max-width:80%;
+	height:30px;
+}</string>
           </property>
           <property name="text">
            <string/>
@@ -548,15 +580,30 @@ QPushButton:hover{
        </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="addchart">
-        <property name="maximumSize">
-         <size>
-          <width>84</width>
-          <height>16777215</height>
-         </size>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="styleSheet">
-         <string notr="true">/* CSS */
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="addchart">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>168</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
 
 QPushButton{
   	background: gold;
@@ -576,22 +623,32 @@ QPushButton:hover{
 }
 
 </string>
-        </property>
-        <property name="text">
-         <string>Add Chart</string>
-        </property>
-       </widget>
+          </property>
+          <property name="text">
+           <string>Add Chart</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QComboBox" name="function_list">
-        <property name="maximumSize">
-         <size>
-          <width>84</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* CSS */
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QComboBox" name="function_list">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>168</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
 
 QComboBox{
  	background: #249334;
@@ -616,24 +673,40 @@ QComboBox::down-arrow {
 	background:#30A641;
     image:url(&quot;:/arrow.png&quot;);
 }</string>
-        </property>
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-        <property name="currentText">
-         <string>Empty</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Empty</string>
-         </property>
+          </property>
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <property name="currentText">
+           <string>Empty</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Empty</string>
+           </property>
+          </item>
+         </widget>
         </item>
-       </widget>
+       </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="exp">
-        <property name="styleSheet">
-         <string notr="true">/* CSS */
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QPushButton" name="exp">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>168</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
 
 QPushButton{
   	background: grey;
@@ -653,16 +726,40 @@ QPushButton:hover{
 }
 
 </string>
-        </property>
-        <property name="text">
-         <string>Export BMP</string>
-        </property>
-       </widget>
+          </property>
+          <property name="text">
+           <string>Export BMP</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <widget class="QPushButton" name="export_json">
+          <property name="minimumSize">
+           <size>
+            <width>97</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>84</width>
@@ -681,7 +778,7 @@ QPushButton{
 	color:white;
 	font-size:15px;
 	font-family:Times New Roman;
-	font: 75 14px bold &quot;Source Code Pro&quot;;
+	font: 75 12px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
 	background:#1f2d61;
@@ -698,6 +795,12 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="import_json">
+          <property name="minimumSize">
+           <size>
+            <width>97</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>84</width>
@@ -716,7 +819,7 @@ QPushButton{
 	color:white;
 	font-size:15px;
 	font-family:Times New Roman;
-	font: 75 14px bold &quot;Source Code Pro&quot;;
+	font: 75 12px bold &quot;Source Code Pro&quot;;
 }
 QPushButton:hover{
 	background:#1f2d61;
@@ -763,63 +866,39 @@ QPushButton:hover{
        </spacer>
       </item>
       <item>
-       <widget class="QCheckBox" name="checkBox">
-        <property name="maximumSize">
-         <size>
-          <width>60</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QCheckBox {
-	font: 75 12pt &quot;Source Code Pro&quot;;
-    spacing: 5px;
-	color:white;
-
-}
-QCheckBox::indicator {
-    width: 19px;
-    height: 19px;	
-}
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/theme_light_dark_icon_137104.ico</normaloff>:/theme_light_dark_icon_137104.ico</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>30</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-        <property name="tristate">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="delete_selected_graph">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>80</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* CSS */
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="delete_selected_graph">
+          <property name="minimumSize">
+           <size>
+            <width>97</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>80</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* CSS */
 
 QPushButton{
   	background: #FF4742;
@@ -833,27 +912,108 @@ QPushButton:hover{
 	font: 75 8pt bold&quot;Source Code Pro&quot;;
 }
 </string>
+          </property>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+	font: 75 12pt &quot;Source Code Pro&quot;;
+    spacing: 5px;
+	color:white;
+
+}
+QCheckBox::indicator {
+    width: 19px;
+    height: 19px;	
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/theme_light_dark_icon_137104.ico</normaloff>:/theme_light_dark_icon_137104.ico</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="tristate">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Ignored</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-        <property name="text">
-         <string>Delete</string>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>916</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
   <customwidget>

@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    ui->line->setPalette(QPalette(Qt::black));
     logicHandler_instance.logic_plot = ui->plot;
     logicHandler_instance.logic_combo = ui->function_list;
 
