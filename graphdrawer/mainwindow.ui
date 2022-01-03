@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>GraphDrawer</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -598,7 +598,7 @@ QPushButton:hover{
           </property>
           <property name="maximumSize">
            <size>
-            <width>168</width>
+            <width>84</width>
             <height>16777215</height>
            </size>
           </property>
@@ -643,7 +643,7 @@ QPushButton:hover{
           </property>
           <property name="maximumSize">
            <size>
-            <width>168</width>
+            <width>84</width>
             <height>16777215</height>
            </size>
           </property>
@@ -701,7 +701,7 @@ QComboBox::down-arrow {
           </property>
           <property name="maximumSize">
            <size>
-            <width>168</width>
+            <width>84</width>
             <height>16777215</height>
            </size>
           </property>
