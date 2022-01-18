@@ -24,12 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     color_picker = new QColorDialog();
     color_picker->hide();
+
     connect(color_picker, &QColorDialog::colorSelected, this, &MainWindow::getColor);
     connect(color_picker, &QColorDialog::rejected, this, &MainWindow::onColorDestroy);
 
     file_dialog = new QFileDialog();
     file_dialog->setNameFilter(tr("JSON files (*.json)"));
     file_dialog->hide();
+
     connect(file_dialog, &QFileDialog::fileSelected, this, &MainWindow::getJSONFile);
     connect(file_dialog, &QFileDialog::rejected, this, &MainWindow::onFileDestroy);
 
@@ -142,7 +144,6 @@ void MainWindow::on_import_json_clicked()
 
 void MainWindow::getJSONFile(const QString& file){
     this->show();
-
     logicHandler_instance.triggerImportJSON(file);
 }
 

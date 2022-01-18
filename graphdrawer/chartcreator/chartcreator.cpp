@@ -68,7 +68,6 @@ void ChartCreator::addSeriesFromJSONFile(const QString& file, QCustomPlot* plot,
             addPoint(QPointF(j["Data"]["x"][i], j["Data"]["y"][i]));
         }
 
-
         if(name != "")
             combo->addItem(QString::fromUtf8(name.c_str()));
         else
