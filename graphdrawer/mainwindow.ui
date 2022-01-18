@@ -962,8 +962,8 @@ QCheckBox::indicator {
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resources.qrc">
-            <normaloff>:/theme_light_dark_icon_137104.ico</normaloff>:/theme_light_dark_icon_137104.ico</iconset>
+           <iconset>
+            <normaloff>half-moon.png</normaloff>half-moon.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -1026,8 +1026,6 @@ QCheckBox::indicator {
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
