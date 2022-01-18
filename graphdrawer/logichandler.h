@@ -19,6 +19,7 @@ public:
     char* getExpressionResult(QString, double);
     void getSelectedGraph();
     void delete_selected_plot();
+    void triggerExportPNG();
     void triggerExportJSON();
     void triggerImportJSON(const QString& file);
 private:

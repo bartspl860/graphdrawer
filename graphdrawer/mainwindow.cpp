@@ -126,8 +126,7 @@ void MainWindow::on_checkBox_stateChanged(int state)
 
 void MainWindow::on_exp_clicked()
 {
-    ui->plot->saveBmp("graph.png",1000,1000);
-    QMessageBox::information(nullptr,"Exported to png" ,tr("Done!\n"));
+    logicHandler_instance.triggerExportPNG();
 }
 
 void MainWindow::on_export_json_clicked()

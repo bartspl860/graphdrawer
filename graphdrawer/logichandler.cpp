@@ -99,6 +99,10 @@ void LogicHandler::delete_selected_plot(){
     lastly_selected_graph = -1;
 }
 
+void LogicHandler::triggerExportPNG(){
+   chartCreator_instance.exportPNG(logic_plot);
+}
+
 void LogicHandler::triggerExportJSON(){
     if(lastly_selected_graph != -1){
         chartCreator_instance.insertSeriesToJSONFile(lastly_selected_graph);
@@ -112,3 +116,4 @@ void LogicHandler::triggerImportJSON(const QString &file){
     }
     chartCreator_instance.addSeriesFromJSONFile(file, logic_plot, logic_combo);
 }
+
