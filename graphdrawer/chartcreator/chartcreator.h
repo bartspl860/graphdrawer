@@ -8,6 +8,7 @@
 #include "qcustomplot.h"
 #include "container_classes.h"
 
+
 using json = nlohmann::json;
 
 class ChartCreator
@@ -26,6 +27,7 @@ public:
     void createGraph(QCustomPlot* frame);
     void addSeriesFromJSONFile(const QString& file, QCustomPlot* plot, QComboBox* combo);
     void insertSeriesToJSONFile(int selected_graph);
+    void exportPNG(QCustomPlot*);
 };
 
 #endif // CHARTCREATOR_H

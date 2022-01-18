@@ -731,7 +731,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="text">
-           <string>Export BMP</string>
+           <string>Export PNG</string>
           </property>
          </widget>
         </item>

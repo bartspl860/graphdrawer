@@ -1,5 +1,6 @@
 #include "chartcreator.h"
 
+
 ChartCreator::ChartCreator()
 {
 
@@ -112,4 +113,9 @@ void ChartCreator::insertSeriesToJSONFile(int selected_graph){
     std::ofstream writer;
     writer.open("data.json", std::ifstream::trunc);
     writer << j.dump(4);
+}
+
+void ChartCreator::exportPNG(QCustomPlot* plot){
+    plot->saveBmp("graph.png",1000,1000);
+    QMessageBox::information(nullptr,"Exported to png" ,QMessageBox::tr("Done!\n"));
 }
