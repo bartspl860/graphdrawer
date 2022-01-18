@@ -1,14 +1,7 @@
 #include "chartcreator.h"
 
-
-ChartCreator::ChartCreator()
-{
-
-}
-
-ChartCreator::~ChartCreator(){
-
-}
+ChartCreator::ChartCreator(){}
+ChartCreator::~ChartCreator(){}
 
 void ChartCreator::createSeries(QString name, QColor color, ChartLimit limit, double axis_sen, QString exp){
     QVector<double> x, y;
@@ -62,7 +55,8 @@ void ChartCreator::addSeriesFromJSONFile(const QString& file, QCustomPlot* plot,
         std::string name = j["Name"];
         std::string color_hex = j["Color"];
         QColor color; color.setNamedColor(QString::fromUtf8(color_hex.c_str()));
-        ChartLimit lim = ChartLimit(j["Limit"]["Left"],
+        ChartLimit lim = ChartLimit(
+                j["Limit"]["Left"],
                 j["Limit"]["Right"],
                 j["Limit"]["Up"],
                 j["Limit"]["Down"]);

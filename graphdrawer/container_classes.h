@@ -5,8 +5,7 @@
 #include <QVector>
 #include <QColor>
 
-struct ChartLimit{
-private:
+class ChartLimit{
     double left;
     double right;
     double up;
@@ -26,16 +25,16 @@ public:
     double getD()const{return down;}
 };
 
-struct Series{
-private:
+class Series{
     QString name;
     QColor color;
     ChartLimit limit;
     double axix_sensitivity;
     QString expression;
-public:
     QVector<double> series_x;
     QVector<double> series_y;
+    friend class ChartCreator;
+public:
     Series(){}
     Series(QString _name, QColor _color, QVector<double> _series_x, QVector<double> _series_y,
            ChartLimit _limit, double _axix_sensitivity, QString _expression)
@@ -43,8 +42,6 @@ public:
     limit(_limit), axix_sensitivity(_axix_sensitivity), expression(_expression){}
     QString getName()const {return name;}
     QColor getColor()const {return color;}
-    QVector<double> getSeriesX()const {return series_x;}
-    QVector<double> getSeriesY()const {return series_y;}
     ChartLimit getLimit()const{return limit;}
     double getSen()const{return axix_sensitivity;}
 };

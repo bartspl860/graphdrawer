@@ -14,7 +14,6 @@ using json = nlohmann::json;
 class ChartCreator
 {
     friend class LogicHandler;
-
 public:
     ChartCreator();
     ~ChartCreator();

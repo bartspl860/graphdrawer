@@ -30,22 +30,22 @@ void LogicHandler::createGraph(QString name, QColor color, QString expression,
                                ChartLimit limit, double axix_x_sensitivity)
 {
     QVector<QPointF> data;
-    double iterator = limit.getL();
+    double step = limit.getL();
 
     try{
-        while(iterator <= limit.getR()){
-            char* string_y = getExpressionResult(expression, iterator);
+        while(step <= limit.getR()){
+            char* string_y = getExpressionResult(expression, step);
             double y = atof(string_y);
 
             if(y < limit.getD() || y > limit.getU() || !strcmp(string_y, "inf")){
-                iterator += axix_x_sensitivity;
-                iterator = round( iterator * 1000 ) / 1000;
+                step += axix_x_sensitivity;
+                step = round( step * 1000 ) / 1000;
                 continue;
             }
-            data.push_back(QPointF(iterator, y));
+            data.push_back(QPointF(step, y));
 
-            iterator += axix_x_sensitivity;
-            iterator = round( iterator * 1000 ) / 1000;
+            step += axix_x_sensitivity;
+            step = round( step * 1000 ) / 1000;
         }
     }
     catch(Error& error){
