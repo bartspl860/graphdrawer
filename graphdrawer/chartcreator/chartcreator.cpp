@@ -109,6 +109,6 @@ void ChartCreator::insertSeriesToJSONFile(int selected_graph){
 }
 
 void ChartCreator::exportPNG(QCustomPlot* plot){
-    plot->saveBmp("graph.png",1000,1000);
+    plot->savePng("graph.png",1000,1000);
     QMessageBox::information(nullptr,"Exported to png" ,QMessageBox::tr("Done!\n"));
 }
